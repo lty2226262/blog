@@ -2,3 +2,23 @@
 *.xmi
 
 *.xmi
+
+*.xml
+
+java/practices/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache
+
+*.index
+
+*.version
+
+*.tree
+
+*.prefs
+
+*.dat
+
+*.properties
+
+java/practices/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
+
+java/practices/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
