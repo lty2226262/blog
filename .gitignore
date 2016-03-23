@@ -22,3 +22,23 @@ java/practices/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache
 java/practices/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
 
 java/practices/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+
+*.log
+
+java/practices/.metadata/.lock
+
+*.zip
+
+*.gen
+
+java/practices/.metadata/.plugins/org.eclipse.core.resources/.history/28/606dbd9dccf0001514b7c6a436a3cae3
+
+java/practices/.metadata/.mylyn/.taskListIndex/segments_1
+
+java/practices/.metadata/.plugins/org.eclipse.core.resources/.history/1e/f062a8f0ccf0001514b7c6a436a3cae3
+
+java/practices/.metadata/
+
+java/practices/Names/.classpath
+
+java/practices/Names/.project
