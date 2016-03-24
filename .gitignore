@@ -66,3 +66,7 @@ java/practices/.recommenders/index/http___download_eclipse_org_recommenders_mode
 *.tii
 
 *.tis
+
+java/practices/Homework1Problem2/.project
+
+java/practices/Homework1Problem2/.classpath
