@@ -42,3 +42,27 @@ java/practices/.metadata/
 java/practices/Names/.classpath
 
 java/practices/Names/.project
+
+*.fdx
+
+*.fdt
+
+*.fnm
+
+*.frq
+
+*.nrm
+
+*.prx
+
+java/practices/Homework1/.project
+
+java/practices/Homework1/.classpath
+
+*.lock
+
+java/practices/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/segments_1
+
+*.tii
+
+*.tis
