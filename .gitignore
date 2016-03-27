@@ -74,3 +74,5 @@ java/practices/Homework1Problem2/.classpath
 java/practices/Lab2/.classpath
 
 java/practices/Lab2/.project
+
+*.json
