@@ -1,0 +1,9 @@
+using System; 
+public class Program { 
+    public static int Puzzle(int a, int x) {     
+        int b = 1; 
+        for (; x>0; x/=2, a*=a) 
+            if (x % 2 == 1) b *= a; 
+        return b; 
+    } 
+} 
