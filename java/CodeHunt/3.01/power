@@ -1,9 +1,20 @@
-using System; 
-public class Program { 
-    public static int Puzzle(int a, int x) {     
-        int b = 1; 
-        for (; x>0; x/=2, a*=a) 
-            if (x % 2 == 1) b *= a; 
-        return b; 
-    } 
-} 
+public double power(double x, int n) {
+	if (n == 0)
+		return 1;
+ 
+	double v = power(x, n / 2);
+ 
+	if (n % 2 == 0) {
+		return v * v;
+	} else {
+		return v * v * x;
+	}
+}
+ 
+public double pow(double x, int n) {
+	if (n < 0) {
+		return 1 / power(x, -n);
+	} else {
+		return power(x, n);
+	}
+}
