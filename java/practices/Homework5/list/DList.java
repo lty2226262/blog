@@ -59,9 +59,9 @@ public class DList extends List {
   public DList() {
     // Your solution here.  Similar to Homework 4, but now you need to specify
     //   the `list' field (second parameter) as well.
-    DListNode thisHead;
-    thisHead = newNode(null, null, head, head);
-    head = thisHead;
+    head = newNode(null, null, null, null);
+    head.prev = head;
+    head.next = head;
     size = 0;
   }
 

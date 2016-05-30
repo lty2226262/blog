@@ -1,3 +1,4 @@
+package hw6;
 /* Set.java */
 
 import list.*;
@@ -8,7 +9,7 @@ import list.*;
  **/
 public class Set {
   /* Fill in the data fields here. */
-
+  private DList setBody;
   /**
    * Set ADT invariants:
    *  1)  The Set's elements must be precisely the elements of the List.
@@ -24,6 +25,7 @@ public class Set {
    **/
   public Set() { 
     // Your solution here.
+    setBody = new DList();
   }
 
   /**
@@ -33,7 +35,7 @@ public class Set {
    **/
   public int cardinality() {
     // Replace the following line with your solution.
-    return 0;
+    return setBody.length();
   }
 
   /**
@@ -46,6 +48,20 @@ public class Set {
    **/
   public void insert(Comparable c) {
     // Your solution here.
+    DListNode currentNode = (DListNode)setBody.front();
+    try{
+      while((currentNode.isValidNode()) && (((Comparable)currentNode.item()).compareTo(c)<0)){
+        currentNode = (DListNode)currentNode.next();
+      }
+      if ((!currentNode.isValidNode())){
+        setBody.insertBack(c);
+      } else if(((Comparable)currentNode.item()).compareTo(c)>0){
+        currentNode.insertBefore(c);
+      }
+    } catch (Exception e){
+      e.printStackTrace();
+    }
+    
   }
 
   /**
@@ -65,6 +81,27 @@ public class Set {
    **/
   public void union(Set s) {
     // Your solution here.
+    DListNode currentNode1 = (DListNode)setBody.front();
+    DListNode currentNode2 = (DListNode)s.setBody.front();
+    try{
+      while(currentNode1.isValidNode()&&currentNode2.isValidNode()){
+        if(((Comparable)currentNode1.item()).compareTo(currentNode2.item())<0){
+          currentNode1 = (DListNode)currentNode1.next();
+        } else if (((Comparable)currentNode1.item()).compareTo(currentNode2.item())==0) {
+          currentNode1 = (DListNode)currentNode1.next();
+          currentNode2 = (DListNode)currentNode2.next();
+        } else{
+          currentNode1.insertBefore(currentNode2.item());
+          currentNode2 = (DListNode)currentNode2.next();
+        }
+      }
+      while (currentNode2.isValidNode()) {
+        setBody.insertBack(currentNode2.item());
+        currentNode2 = (DListNode)currentNode2.next();
+      }
+    } catch (Exception e){
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -82,6 +119,27 @@ public class Set {
    **/
   public void intersect(Set s) {
     // Your solution here.
+    DListNode currentNode1 = (DListNode)setBody.front();
+    DListNode currentNode2 = (DListNode)s.setBody.front();
+    try{
+      while(currentNode1.isValidNode()&&currentNode2.isValidNode()){
+        if(((Comparable)currentNode1.item()).compareTo(currentNode2.item())<0){
+          currentNode1 = (DListNode)currentNode1.next();
+          currentNode1.prev().remove();
+        } else if (((Comparable)currentNode1.item()).compareTo(currentNode2.item())==0) {
+          currentNode1 = (DListNode)currentNode1.next();
+          currentNode2 = (DListNode)currentNode2.next();
+        } else{
+          currentNode2 = (DListNode)currentNode2.next();
+        }
+      }
+      while(currentNode1.isValidNode()){
+        currentNode1 = (DListNode)currentNode1.next();
+        currentNode1.prev().remove();
+      }
+    } catch (Exception e){
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -100,8 +158,19 @@ public class Set {
    *            DEVIATIONS WILL LOSE POINTS.
    **/
   public String toString() {
-    // Replace the following line with your solution.
-    return "";
+    String result = "{ ";
+    try {
+      DListNode currentNode = (DListNode)setBody.front();
+      while(currentNode.isValidNode()){
+        result += (" " + currentNode.item() + " ");
+        currentNode = (DListNode)currentNode.next();
+      }
+
+    } catch(Exception e){
+      e.printStackTrace();
+    }
+    result += " }";
+    return result;
   }
 
   public static void main(String[] argv) {
