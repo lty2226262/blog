@@ -1,0 +1,11 @@
+//are the diagonals of the matrix equals?
+public class Program {
+    public static Boolean Puzzle(int[][] input) {
+        int sumA = 0,sumB = 0;
+        for (int i = 0; i < input.length;i++){
+            sumA += input[i][i];
+            sumB += input[i][input.length -1 -i];
+        }
+        return sumA == sumB;
+    }
+}

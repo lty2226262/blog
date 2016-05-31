@@ -1,0 +1,6 @@
+
+public class Program {
+    public static int Puzzle(String s,char x) {
+    return s.length() - s.replace("" + x,"");
+    }
+}

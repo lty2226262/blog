@@ -1,0 +1,67 @@
+#HTML Headings & The HTML \<pre> Element
+##HTML Horizontal Rules
+The \<hr> tag creates a horizontal line in an HTML page.
+
+The hr element can be used to separate content:
+
+	<p>This is a paragraph.</p>
+	<hr>
+	<p>This is a paragraph.</p>
+	<hr>
+	<p>This is a paragraph.</p>
+	
+##The HTML \<head> Element
+
+The HTML \<head> element has nothing to do with HTML headings.
+	
+The HTML \<head> element contains meta data. Meta data are not displayed.
+	
+The HTML \<head> element is placed between the <html> tag and the <body> tag:
+	
+	<!DOCTYPE html>
+	<html>
+	
+	<head>
+	  <title>My First HTML</title>
+	  <meta charset="UTF-8">
+	</head>
+	
+	<body>
+	.
+	.
+	.
+	
+##The HTML \<title> Element
+
+The HTML \<title> element is meta data. It defines the HTML document's title.
+
+The title will not be displayed in the document, but might be displayed in the browser tab.
+
+##The HTML \<meta> Element
+The HTML \<meta> element is also meta data.
+
+It can be used to define the character set, and other information about the HTML document.
+
+##More Meta Elements
+
+In the chapter about HTML styles you discover more meta elements:
+
+The HTML \<style> element is used to define internal CSS style sheets.
+
+The HTML \<link> element is used to define external CSS style sheets.
+
+##The HTML \<pre> Element
+
+The HTML \<pre> element defines preformatted text.
+
+The text inside a \<pre> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:
+
+	<pre>
+	  My Bonnie lies over the ocean.
+	
+	  My Bonnie lies over the sea.
+	
+	  My Bonnie lies over the ocean.
+	
+	  Oh, bring back my Bonnie to me.
+	</pre>
