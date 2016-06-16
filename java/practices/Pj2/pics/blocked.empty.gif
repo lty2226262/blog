@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+     <meta charset="utf-8" />
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta name="verify-v1" content="JGaSHUCkIAbgSRQ5nzWiKM4P8Vl1dtfBeLFXc8w2SO4=" />
+     <meta name="google-site-verification" content="bzRPpkNkzyctlxDyqPXvqaCom3-9L7qM7XlU4W7ZyG0" />
+     <meta name="description" content="Electrical Engineering and Computer Sciences is the largest department at the University of California, Berkeley.  EECS spans all of information science and technology and has applications in a broad range of fields, from medicine to the social sciences." />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <link href="/Includes/style.css" rel="stylesheet" type="text/css">
+<style type="text/css" media="all">@import "/Includes/grandfather.css";</style>
+<link rel="stylesheet" type="text/css" media="print" href="/Includes/print.css" />
+
+<title>Resource not found | EECS UC Berkeley</title>
+
+</head>
+<body>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WZMWWC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WZMWWC');</script>
+<!-- End Google Tag Manager -->
+
+<ul id="skip">
+	<li><a href="#search-anchor">Skip to Search</a></li>
+	<li><a href="#nav-anchor">Skip to Nav</a></li>
+	<li><a href="#main-anchor">Skip to Main Content</a></li>
+	<li><a href="#footer-anchor">Skip to Footer</a></li>
+</ul>
+
+<a name="top"></a>
+
+  <div id="header" role="banner">
+    <div id="bannerbackground">
+      <div id="extras">
+        <div id="search" role="search">
+           <!-- eecs website search box -->
+<a name="search-anchor" class="accessibility" tabindex="0">search</a>
+<!-- Google CSE Search Box Begins  -->
+<!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. -->
+<!-- The terms of service are available at https://www.google.com/cse/docs/tos.html -->
+<form class="sidesearch2" id="cref" action="https://www.google.com/cse">
+  <input type="hidden" name="cref" value="http://www.eecs.berkeley.edu/Includes/cse.xml" />
+  <label for="search"><span class="screenreader">Search</span></label>
+  <input id="search"  type="text" name="q" style="width:82px;margin-left:2px;" />
+  <input id="submit"  type="submit" name="sa" value="Search" style="width:68px;font-size:.85em;" />
+</form>
+<!-- I commented out the javascript src line below because it was generating security errors - the last single quote was being converted into an entity number by Chrome -  and I couldn't figure out where it came from or what it did.  MLC 30-apr-15 -->
+<!-- script type="text/javascript" src="'/cse'/brand'?form='cref" ></script -->
+<!-- Google CSE Search Box Ends -->
+               <!-- end eecs website search box -->
+        </div> <!-- end search -->
+	<div id="give">
+	<a href="http://www.eecs.berkeley.edu/XRG/eecsgifts.shtml">Make a Gift to EECS</a>
+	</div><!-- end give -->
+      </div> <!-- end extras -->
+      <div id="logo">
+        <div id="logo-top">
+	  <div id="logo-berkeley">
+      <a href="http://www.berkeley.edu"><img src="/Includes/Images/logo-berkeley.jpg" alt="Berkeley" width="175" height="52"></img></a>
+	  </div> <!-- end logo-berkeley -->
+	  <div id="logo-eecs">
+      <a href="http://www.eecs.berkeley.edu"><img src="/Includes/Images/logo-eecs.jpg" alt="EECS" width="125" height="52"></img></a>
+	  </div> <!-- end logo-eecs -->
+	</div> <!-- end logo-top -->
+	<div class="clear"></div>
+	<div id="logo-bottom">
+      <a href="http://www.eecs.berkeley.edu"><img src="/Includes/Images/logo-bottom.jpg" alt="Electrical Engingeering &amp; Computer Sciences" width="300" height="18"></img></a>
+	</div> <!-- end logo-bottom -->
+      </div> <!--end logo -->
+      <div class="clear"></div>
+
+
+  </div> <!-- end bannerbackground div -->
+
+  <a name="nav-anchor" class="accessibility" tabindex="0">nav</a>
+    <div id="divider-top"> </div>
+  <div id="navbar" role="navigation">
+      <div id='navinternal'>
+  <ul>
+    <li class='has-sub'><a href='/department/internal.shtml'><span>My EECS</span></a>
+      <ul>
+         <!-- Login Row -->
+         <li><!--EECSLOGIN--><A TITLE="EECS Faculty, Students, Staff, and Researchers can Login Here" HREF="http://www.eecs.berkeley.edu/deptinfo/login.html?returnto=http://people.eecs.berkeley.edu:80/~jrs/61b/hw/pj2/pics/blocked.empty.gif">Login</A>
+	 <!-- End Login Row -->
+	 </li>
+         <li><a href='/Resguide/stud.shtml'><span>For<br>Students</span></a></li>
+         <li><a href='/Resguide/acad.shtml'><span>For<br>Faculty</span></a></li>
+         <li><a href='/department/staffinfo.shtml'><span>For<br>Staff</span></a></li>
+         <li><a href='/Resguide/admin.shtml'><span>Admin<br>Support</span></a></li>
+         <li><a href='http://www.erso.berkeley.edu/'><span>Research<br>Support</span></a></li>
+         <li><a href='http://iris.eecs.berkeley.edu/'><span>Computing<br>Support</span></a></li>
+         <li><a href='/Facilities/'><span>Facilities &amp;<br>Safety</span></a></li>
+         <li class='last'><a href='/deptinfo'><span>My EECS Info</span></a></li>
+      </ul>
+    </li>
+  </ul>
+      </div> <!-- end navinternal -->
+    <div id='navmenu'>
+<ul>
+   <li class='has-sub'><a href='/department/about.shtml'><span>About</span></a>
+      <ul>
+         <li><a href='/department/'><span>Welcome from the Chair</span></a></li>
+         <li><a href='/department/statistics.shtml'><span>By the Numbers</span></a></li>
+         <li><a href='/news/'><span>News</span></a></li>
+         <li><a href='/department/history.shtml'><span>History</span></a></li>
+         <li><a href='/department/Impact.shtml'><span>Impact</span></a></li>
+         <li><a href='/Diversity/'><span>Diversity</span></a></li>
+         <li><a href='/department/OutreachPrograms.shtml'><span>Outreach</span></a></li>
+         <li><a href='/Directions/'><span>Map &amp; Directions</span></a></li>
+         <li class='last'><a href='/department/officers.shtml'><span>Administration</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='/education/'><span>Academics</span></a>
+      <ul>
+         <li><a href='/education/degrees.shtml'><span>Degree Programs</span></a></li>
+         <li><a href='/Prospective/ugrad.shtml'><span>Undergraduate Admissions</span></a></li>
+         <li><a href='/Gradadm/'><span>Graduate Admissions</span></a></li>
+         <li><a href='/education/courses.shtml'><span>Courses</span></a></li>
+         <li><a href='/Students/'><span>Student Information</span></a></li>
+         <li class='last'><a href='/education/usli/'><span>Objectives &amp; Outcomes</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='/Research/'><span>Research</span></a>
+      <ul>
+         <li><a href='/Research/Areas/'><span>Areas</span></a></li>
+         <li><a href='/Research/Areas/Centers/'><span>Centers</span></a></li>
+         <li><a href='/Research/Projects/'><span>Projects</span></a></li>
+         <li><a href='/Pubs/'><span>Publications</span></a></li>
+         <li class='last'><a href='/Visiting/Scholars/menu.shtml'><span>Visiting Scholars</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='/department/people.shtml'><span>People</span></a>
+      <ul>
+         <li><a href='/Rosters/roster.name.nostudentee.html'><span>Directory</span></a></li>
+         <li><a href='/Faculty/Lists/'><span>Faculty Lists</span></a></li>
+         <li><a href='/department/staff.shtml'><span>Staff Lists</span></a></li>
+         <li><a href='/Students/directories.shtml'><span>Student Lists</span></a></li>
+         <li class='last'><a href='/alumni/lists.shtml'><span>Alumni Lists</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='/XRG/'><span>External Relations</span></a>
+      <ul>
+         <li><a href='/XRG/IAB/'><span>Industrial Advisory Board</span></a></li>
+         <li><a href='/XRG/recruitment.shtml'><span>On-Campus Recruiting</span></a></li>
+         <li><a href='/XRG/entrepreneur.html'><span>Entrepreneurial Activities</span></a></li>
+         <li class='last'><a href='/bears/'><span>BEARS Conference</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='/cal/'><span>Calendar</span></a>
+      <ul>
+         <li><a href='http://events.berkeley.edu/index.php/calendar/sn/eecs.html?view=quick&timeframe=month&filter=Secondary%20Event%20Type&filtersel=32'><span>Seminars</span></a></li>
+         <li><a href='/XRG/conferences.shtml'><span>Conferences</span></a></li>
+         <li class='last'><a href='/Colloquium/'><span>Colloquium</span></a></li>
+      </ul>
+    </li>
+<!-- responsive menu for medium screens --> 
+<div class="firstline">
+   <li id="responsive-col1"> <a href='/department/about.shtml'><span>About<b class="caret"></b></span></a> </li>
+   <li id="responsive-col2"> <a href='/education/'><span>Academics<b class="caret"></b></span></a></li>
+   <li id="responsive-col3"> <a href='/Research/'><span>Research<b class="caret"></b></span></a></li>
+</div>
+<div class="secondline">
+   <li id="responsive-col1"> <a href='/department/people.shtml'><span>People<b class="caret"></b></span></a></li>
+   <li id="responsive-col2"> <a href='/XRG/menu.shtml'><span>External&nbsp;Relations<b class="caret"></b></span></a></li>
+   <li id="responsive-col3"> <a href='/cal/'><span>Calendar<b class="caret"></b></span></a></li>
+   <li id="responsive-col4"> <a href='/department/internal.shtml'><span>My&nbsp;EECS<b class="caret"></b></span></a></li>
+</div>
+   <!-- end responsive menu -->
+<!-- responsive menu for small screens --> 
+<div class="clear"></div>
+   <li id="responsive-tab"> <a href='/department/about.shtml'><span>About</span></a> </li>
+   <li id="responsive-tab"> <a href='/education/'><span>Academics</span></a></li>
+   <li id="responsive-tab"> <a href='/Research/'><span>Research</span></a></li>
+   <li id="responsive-tab"> <a href='/department/people.shtml'><span>People</span></a></li>
+   <li id="responsive-tab"> <a href='/XRG/menu.shtml'><span>External Relations</span></a></li>
+   <li id="responsive-tab"> <a href='/cal/'><span>Calendar</span></a></li>
+   <li id="responsive-tab"> <a href='/department/internal.shtml'><span>My EECS</span></a></li>
+   <!-- end responsive menu -->
+        </ul>
+      </div> <!-- end navmenu -->
+      <div class="clear"> </div>
+    </div> <!--end navbar div-->
+    <div id="divider-bottom"> </div>
+
+</div> <!--end header -->
+
+<a name="main-anchor" class="accessibility" tabindex="0">main</a>
+  <div id="content" role="main">
+
+
+
+<script type="text/javascript">
+<!--
+
+function validate() {
+  var val = document.contact.message.value
+  if ( val == '' ) {
+     alert ( "Please include a Message" )
+     return false
+  }
+}
+
+//-->
+</script>
+<!-- <style type="text/css" media="all">@import
+"/ErrorDocuments/webteamErrorPage.css";</style> -->
+
+<h3>The server has encountered a problem because the resource was not found.</h3>
+
+<dl>
+<dt>Your request was :</dt>
+<dd>http://people.eecs.berkeley.edu/~jrs/61b/hw/pj2/pics/blocked.empty.gif</dd>
+</dl>
+
+<h3>What are you looking for?</h3>
+<ul>
+    <li><A HREF="http://www.eecs.berkeley.edu/Gradadm/">
+Graduate Applications &amp; Information</A></li>
+    <li><a href="http://www.eecs.berkeley.edu/Prospective/ugrad.shtml">
+Undergraduate EECS and CS Course Requirements, Transfer &amp; Admissions Information</a></li>
+	      
+    <li><A HREF="http://www.eecs.berkeley.edu/Announcements/">
+How to post job, conference and other outside announcements to the
+EECS Department</a></li>
+   <li><a href="http://iris.eecs.berkeley.edu/helpdesk/">
+EECS Departmental Computer or Network Support</a></li>
+   <li><a href="http://www.eecs.berkeley.edu/department/people.shtml">
+People</a></li>
+</ul>
+
+<h3>Contact Us</h3>
+<p>
+To report problems or submit questions and comments related to the
+site, please send an email to the following email address:</p>
+
+<code style="margin: 20px; padding: 0 20px ;">
+<a href="mailto:webteam%20AT%20eecs.berkeley.edu?subject=Not Found URL: http%3A%2F%2Fpeople.eecs.berkeley.edu%2F~jrs%2F61b%2Fhw%2Fpj2%2Fpics%2Fblocked.empty.gif&amp;body=Link%3A%20http%3A%2F%2Fpeople.eecs.berkeley.edu%2F~jrs%2F61b%2Fhw%2Fpj2%2Fpics%2Fblocked.empty.gif%0AReferrer%3A%20">webteam AT EECS.Berkeley.EDU</a></code>
+</p><p>To contact the owner of the specific page you were
+   looking for send an email to:</p><code style="margin: 20px; padding: 0 20px ;"><a href="mailto:jrs AT CS.Berkeley.EDU?subject=Not Found URL: http%3A%2F%2Fpeople.eecs.berkeley.edu%2F~jrs%2F61b%2Fhw%2Fpj2%2Fpics%2Fblocked.empty.gif&amp;body=Link%3A%20http%3A%2F%2Fpeople.eecs.berkeley.edu%2F~jrs%2F61b%2Fhw%2Fpj2%2Fpics%2Fblocked.empty.gif%0AReferrer%3A%20">jrs AT CS.Berkeley.EDU</a></code>
+<!-- debug info
+<dl>
+<dt><em>Debugging Info:</em></dt>
+<dt>This resource is likely managed by :</dt>
+<dd>user: jrs</dd>
+<dd>ldap count: (1)</dd>
+<dd>Code: (404)</dd>
+<dd>Local Email: jrs AT CS.Berkeley.EDU</dd>
+<dd>Name: Jonathan Shewchuk</dd>
+</dl>
+-->
+
+
+    </div> <!-- end content div -->
+
+<!-- the name of this file must have .shtml suffix for date code to work -->
+
+<a name="footer-anchor" class="accessibility" tabindex="0">footer</a>
+    <div id="footerbackground">
+      <div id="footer" role="contentinfo">
+       <A HREF="http://www.eecs.berkeley.edu/">Home</A>
+       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+       <A HREF="http://www.eecs.berkeley.edu/Includes/copyright.shtml">&copy;UC&nbsp;Regents</A>
+       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+       
+       <!--DATE_LASTMOD-->Feb 07, 2015 07:22
+       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="http://www.eecs.berkeley.edu/help">Get&nbsp;Help</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="http://www.eecs.berkeley.edu/Includes/privacy.shtml">Privacy&nbsp;Notice</a>
+      </div> <!--end footer div -->
+    </div> <!-- end footerbackground -->
+
+
+  </body>
+
+</html>
+
