@@ -284,3 +284,144 @@ Since cars and planes cannot replace each other while both handling important ta
 ###综合写作
 tpo1-5，6-10的答案校对。
 （精读，精听）
+
+##点题班
+
+##综合写作
+
+###阅读
+
+记下主旨，三个分论点，关键词
+
+记what and why
+
+要写阅读里的因果关系
+
+###听力
+
+和阅读逻辑相反的细节和原因，半数以上不需要记
+
+###关系
+
+讲听力怎么反驳阅读
+
+##独立写作
+
+###单一解释型
+
+1. young children learn from each other in group discussion？
+
+	learn from peers, academic study
+	
+	behave good manners, not only academic but social behaviors. have a good relation ship with others
+	
+	motivate them to concentrate, peer pressure. competive
+
+2. social media is a good way express personal views
+
+	everyone could become a source of news.anyone is able to express his individual opinion on social issues or on anything, they can make sure that their opinions can be seen by the public, only cebrities, politics can express their opinion on the magazines or newspapers. 
+	
+	you can deliver the message to certain people in a public way without bothering others. public doesn't care about, very good place to show their personal matters. only people involved in the matters will understand what you are going to say. very convenient to send the messages to the specific individuals in a very public way. certain people who is really caring about it 
+	
+	become more dearing because they can speak what they really want to speak anonymously, without revealing their identities. They can be protected. complaint about their bosses or government. have no ways to express their angers.
+
+3. travel by themselves or be led by a tour guide（段段分高下）
+
+	Tour guide doesn't have more specific knowledges than we do when we go to some new places. Because all the information is availible online. History, local cultures. even waste our time by introducing some information we are not interested in at all.
+	
+	someone like to stay up late at night and someone doesn't like get up early. In we are travelling with a tour duide, we are unlikely to stick our own schedules.
+	
+	travelling by ourselves can help us save a lot of money. take us to a restaurant which service is poor but price is high from which they can make money from us again. 
+
+4. it is difficult for teachers to be both popular and effective in helping students to learn
+
+	There are a lot of people who is both popular and effective.  popular : Because they are charming, interesting, personal experience. effective: experienced, knowledgable. 
+	
+	effective -> popular. help their students get what they want. Reputation from students. 
+	
+	popular -> effective. unlikely to pay attention to an unpopular teacher. easily distract. 
+	
+5. athletes and entertainers should not get involved in politics.
+
+	everyone is involved in politics. They are just like everybody else in the society. Everyone is influenced by the policie of government. The price of goods here is a case in point. Whether we like it or not, every people is involved in the society.
+	
+	should get involved in politics because they can easily draw people's attention. Some social issues deserve attention from public. that's why some devote themselves into charities.
+	
+	by speaking for their own, represent themselves. show people they can achieve great things, more people will understand 
+	
+6. spend a lot of time on communicating by technologies, such as through social media or with texy messages.
+
+	工作学习生活，
+	
+	missing important calls lose your job, blame by your boss
+	
+	communicate with teachers and other students. you will be well-informed and much more efficient by study by yourself.
+	
+	if you miss your mother's call, she will be worried about you. Contact through phone and social media, benefits friend relationship. 
+	
+7. people now are more interested in improving the neighborhood than in the past.
+
+	natural environment, support facilities, privacy
+	
+	our environment are much more contaminations than before, this is why nowadays people are more interested in planting trees and flowers
+	
+	more stressed. Occupied by their tests and exams. always more workload makes them much more interested than ever before to build more support facilities like gym, basketball court, swimming pool.
+	
+	have to do with much more people than ever. that makes them tired of communicating with people, they do not like to be bothered by others.
+	
+8. governments have done enough to educate people the importance of a balanced lifestyle and healthy eating
+
+	吐槽题
+	
+	better job 同意， have do enough 不同意
+	
+	I don't think the government have done enough to educate people in companies. Because the employees are forced to work overtime everyday and what's more the assignment are so overwhelming that sometimes they even have to bring their work back home on weekends and on holidays. Even they are equiped with technical equipments to make them more efficient, the greed of bosses go even futher.
+	
+	students nowadays are also occupied by requirements for their students. Attend a lot of unmeaningful activities. 
+	
+	educate people what to eat and how to eat. a lot of people are getting over-weight. It is just because they have cosume too many fast food. And the government enjoy the tax money paid by these food stores. 
+	
+9. schools should use computers as a tool of education for children aged 4 to 7.
+
+	they are going to attend primary school. Be ready for their campus life. Send e-mail to their teachers to hand in their homework.
+	
+	helping them is also very important for teaching them how to communicate with friends, family members online. 
+	
+	might distract their attention, only happen when doing it inappropriately. this is the best we can modify children's behaviors and we chan shape children's behaviors.
+	
+10. big city or countryside
+
+	工作，学习，生活
+	
+	good jobs with better salaries. better chance to work. have more choices. 
+	
+	best colleges and best universities are always located at big cities.
+	
+	convenience of public transports. more shopping malls. medical service. most accomplished hospitals.
+	
+11. all teachers should be required to take courses to upgrade their knowledge every five years.
+
+	new textbooks. revise very frequently. Updated every five years. Since teacher teaches their students according to the textbooks, they should also updated their information about the textbook. make their teaching unfriend an less efficient to their students. benefitial to their career development, beneficial to their relationships between students.
+	
+	about new technologies, computers, slides. e-mails to assign to their students. more efficient. keep up with times
+	
+	upgrade their knowledge about the students they teach. The students five years ago would behave very differently for students nowadays. The way of teacher communicating with students five years ago will no longer be practical when they communicate with children nowadays.
+	
+##缺一不可(双线扩展 real test topic 2)
+
+1. a person that does what the group wants him to do, or a person that hold strong opinions different from what the group wants. / How to succeed? Some people believe it is important to hold on to their views. Others believe we should embrace new ideas.
+
+	(1)of course a group need people to do what the group wants him to do. Without cooperation, no plans can be carried out and no ideas can be realized. If people are unwilling to do what the team want him to do, even good plans could fail, not to mention bad ones. 
+	
+	(1)Without these people, there will not be any people who can accept the opinions who thinks different from the majority. People who are willing to accept means peop who are really open-minded. 
+	
+	(2)Sometimes some of their opinions are really important. Parts of their concerns could be really reminding for us to concern.
+	
+	(2)once the plan doesn't work out, these people can lead us to the final victory. 
+	
+2. Some people believe that taking field trips (e.g. going to the museum) is an important part of children's education. Others believe that it is better for children to study at school.
+
+	(1)These two kinds of education are both beneficial to children. Before children have start their formal education, like they are in kindergarten. Children at these ages won't even lack the self control to disipline themselves in classes. And they are likely to walk around while they are supposed to be sitting down. They are likely to talk back to teachers because they are not educated by their parents that well. Taking them to a museum or a zoo will be a very good way to learn.
+	
+	(1)Even if they attend the primary school, 
+	
