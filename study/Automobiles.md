@@ -30,11 +30,12 @@ sense : initial belief
 
 Bayes theorem reminder:
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= P(A\mid B)=\frac{P(B\mid A) \times P(A)}{P(B)}" style="border:none;">
+<img src="http://latex.codecogs.com/gif.latex?P(A\mid%20B)=\frac{P(B\mid%20A)%20\times%20P(A)}{P(B)}">
 
 ## Motion-Total Probability
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= P(X_i^{t}) = \sum_j P(X^{t-1}_j) \dot P(X_i\mid X_j)" style="border:none;">
+<img src="http://latex.codecogs.com/gif.latex?P(X_i^{t})%20=%20\sum_j%20P(X^{t-1}_j)%20\dot%20P(X_i\mid%20X_j)">
+
 
 t - time
 
@@ -133,20 +134,20 @@ y-center of back wheel - y
 
 rotation angle of back wheel - <img src="http://latex.codecogs.com/gif.latex?\theta" />
 
-<img src="http://latex.codecogs.com/gif.latex?c_x = x - sin (\theta)\cdot R" />
+<img src="http://latex.codecogs.com/gif.latex?c_x%20=%20x%20-%20sin%20(\theta)\cdot%20R" />
 
-<img src="http://latex.codecogs.com/gif.latex?c_y = y - cos (\theta)\cdot R" />
+<img src="http://latex.codecogs.com/gif.latex?c_y%20=%20y%20-%20cos%20(\theta)\cdot%20R" />
 
-<img src="http://latex.codecogs.com/gif.latex?x_1' = c_x + sin(\theta + \beta)\cdot R" />
+<img src="http://latex.codecogs.com/gif.latex?x_1%27%20=%20c_x%20+%20sin(\theta%20+%20\beta)\cdot%20R" />
 
-<img src="http://latex.codecogs.com/gif.latex?y_1' = c_y + cos(\theta + \beta)\cdot R" />
+<img src="http://latex.codecogs.com/gif.latex?y_1%27%20=%20c_y%20+%20cos(\theta%20+%20\beta)\cdot%20R" />
 
-<img src="http://latex.codecogs.com/gif.latex?\theta' = (\theta + \beta) mod 2 \pi" />
+<img src="http://latex.codecogs.com/gif.latex?\theta%27%20=%20(\theta%20+%20\beta)%20mod%202%20\pi" />
 
-if <img src="http://latex.codecogs.com/gif.latex?\mid \beta \mid < 0.001" />
+if <img src="http://latex.codecogs.com/gif.latex?\mid%20\beta%20\mid%20%3C%200.001" />
 
-<img src="http://latex.codecogs.com/gif.latex?x' = x + d \cdot cos \theta" />
+<img src="http://latex.codecogs.com/gif.latex?x%27%20=%20x%20+%20d%20\cdot%20cos%20\theta" />
 
-<img src="http://latex.codecogs.com/gif.latex?y' = y + d \cdot sin \theta" />
+<img src="http://latex.codecogs.com/gif.latex?y%27%20=%20y%20+%20d%20\cdot%20sin%20\theta" />
 
-<img src="http://latex.codecogs.com/gif.latex?\theta ' = (\theta + \beta) mod 2 \pi" />
+<img src="http://latex.codecogs.com/gif.latex?\theta%20%27%20=%20(\theta%20+%20\beta)%20mod%202%20\pi" />
