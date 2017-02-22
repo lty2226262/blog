@@ -119,7 +119,7 @@ STEERING ANGLE - <img src="http://latex.codecogs.com/gif.latex?\alpha" />
 
 RADIUS - R
 
-<img src="http://latex.codecogs.com/gif.latex?\beta = \frac{d}{L}\cdot tan(\alpha)" />
+<img src="http://latex.codecogs.com/gif.latex?\beta%20=%20\frac{d}{L}\cdot%20tan(\alpha)" />
 
 <img src="http://latex.codecogs.com/gif.latex?R = \frac{d}{\beta}" />
 
