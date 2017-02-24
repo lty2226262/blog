@@ -150,4 +150,7 @@ if <img src="http://latex.codecogs.com/gif.latex?\mid%20\beta%20\mid%20%3C%200.0
 
 <img src="http://latex.codecogs.com/gif.latex?y%27%20=%20y%20+%20d%20\cdot%20sin%20\theta" />
 
-<img src="http://latex.codecogs.com/gif.latex?\theta%20%27%20=%20(\theta%20+%20\beta)%20mod%202%20\pi" />
+<img
+ src="http://latex.codecogs.com/gif.latex?\theta%20%27%20=%20(\theta%20+%20\beta)%20mod%202%20\pi" />
+
+### motion planning
