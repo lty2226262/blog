@@ -156,3 +156,56 @@ if <img src="http://latex.codecogs.com/gif.latex?\mid%20\beta%20\mid%20%3C%200.0
 ### motion planning
 
 A star disadvantages: cannot deal with branching outcomes, cannot deal with information gathering
+
+### robot  
+
+smooth:
+
+<img src="http://latex.codecogs.com/gif.latex?y_i=y_i+\alpha%20(x_i%20-%20y_i)%20+%20\beta%20(y_{i+1}%20+%20y_{i-1}%20-2%20\times%20y_i)" />
+
+### P control
+
+p: steering = -tau * crosstrack_error
+
+p may lead to overshoot
+
+p larger -> oscillates faster
+
+<img src="http://latex.codecogs.com/gif.latex?\alpha%20=%20-\tau%20_p%20\times%20CTE" />
+
+### PD control
+
+D to decrease overshooting
+
+<img src="http://latex.codecogs.com/gif.latex?\alpha%20=%20-\tau%20_p%20\times%20CTE%20-%20\tau%20_d\frac{d}{dt}CTE" />
+
+### PID control
+
+I to decrease stead error
+
+<img src="http://latex.codecogs.com/gif.latex?\alpha%20=%20-\tau%20_p%20\times%20CTE%20-%20\tau%20_d\frac{d}{dt}CTE-\tau_I%20\sum{CTE}" />
+
+### how to assign parameters: TWIDDLE
+
+    run() -> return a goodness, always the average crosstrack error
+------------------------
+
+    p = [0,0,0] #parameters
+    dp = [1,1,1] #potential changes
+
+    best_err = run(p)
+    for i in range(len(p)):
+      p[i] += dp[i]
+      err = run(p)
+
+    if err < best_err:
+      best_err = err
+      dp[i] *= 1.1
+    else:
+      p[i] -= 2dp[i]
+    .
+    .
+    .
+    else:
+      p[i] += dp[i]
+      dp[i] *= 0
