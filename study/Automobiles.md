@@ -108,6 +108,16 @@ I: identity matrix
 
 <img src="http://latex.codecogs.com/gif.latex?P%27%20%3D%20%28I%20-%20K%20%5Ccdot%20H%29%5Ccdot%20P" />
 
+### Measurement updates
+
+####Resampling
+
+draw N from the particles, every particle has a weight, the weight is proportional to the distance between the particle and the landmark
+
+
+
+then build a resample wheel
+
 ### Bicycle models
 
 TURNING ANGLE - <img src="http://latex.codecogs.com/gif.latex?\beta" />
@@ -209,3 +219,7 @@ I to decrease stead error
     else:
       p[i] += dp[i]
       dp[i] *= 0
+
+  ### slam
+
+  mu = omega^{-1}*xi
