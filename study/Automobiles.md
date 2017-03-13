@@ -108,9 +108,57 @@ I: identity matrix
 
 <img src="http://latex.codecogs.com/gif.latex?P%27%20%3D%20%28I%20-%20K%20%5Ccdot%20H%29%5Ccdot%20P" />
 
-### Measurement updates
+#### Notice
 
-####Resampling
+The kalman filter introduced above is only fit the linear system. When it comes to nonlinear system, EKF or UKF or PF are more useful.
+
+#### Extended Kalman filter
+
+##### A simple example
+
+Imagine an airplane, we can think of the current altitude as a fraction of the previous altitude. The altitude at the current time is 98% of its altitude at the previous time:
+
+<img src="http://latex.codecogs.com/gif.latex?altitude_{current\_time}%20=%200.98%20\times%20altitude_{previous\_time}" />
+
+##### Dealing with noise
+
+Real-world measurement like altitude are obtained from sensors like a GPS or barometer. These sensors offer varying degrees of accuracy. So these noises add a "noisy" to the observed sensor reading.
+
+ <img src="http://latex.codecogs.com/gif.latex?observed\_altitude_{current\_time}%20=%20altitude_{current\_time}+noise_{current\_time}" />
+
+##### Putting it together
+
+To make the above two equations more general:
+
+ <img src="http://latex.codecogs.com/gif.latex?x" /> - current state of our system,
+
+ <img src="http://latex.codecogs.com/gif.latex?x%20_%20{k%20-%201}" /> - previous state,
+
+a - some constant,
+
+<img src="http://latex.codecogs.com/gif.latex?z_k" /> - our current observation of the system,
+
+<img src="http://latex.codecogs.com/gif.latex?v_k" /> - the current noise measurement,
+
+<img src="http://latex.codecogs.com/gif.latex?x_k=ax_{k-1}" />
+
+ <img src="http://latex.codecogs.com/gif.latex?z_k%20=%20x_k%20+%20v_k" />
+
+ So the current observed altitude is defined as:
+
+  <img src="http://latex.codecogs.com/gif.latex?altitude_{current\_time}=0.98\times%20altitude_{previous\_time}+turbulence_{current\_time}" />
+
+  More generally:
+
+<img src="http://latex.codecogs.com/gif.latex?w_k" /> - process noise, like turbulent, it is an inherent part of the process but not an artificial of observation or measurement. We will ignore process noise for a while in order to focus on the other topics.
+
+<img src="http://latex.codecogs.com/gif.latex?x_k=ax_{k-1}+w_k" />
+
+
+
+### Particle Filter
+
+#### Resampling
 
 draw N from the particles, every particle has a weight, the weight is proportional to the distance between the particle and the landmark
 
