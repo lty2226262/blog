@@ -314,7 +314,113 @@ now when adds another sensor, says GPS. Both the barometer and the GPS will be a
 
 Kalman gives us a better state estimate than one alone.
 
+##### sensor fusion example
 
+To simplify the thing, we assume that we have no knowledge of the state-transition model. So we just set our state-transition matrix to 1:
+
+<img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=A\hat{x}_{k-1}=1*\hat{x}_{k-1}=\hat{x}_{k-1}" />
+
+so the
+
+<img src="http://latex.codecogs.com/gif.latex?P_k=AP_{k-1}A^T=1\times%20P{k-1}\times%201=P_{k-1}" />
+
+when we update the model, the <img src="http://latex.codecogs.com/gif.latex?P_k" /> never updates. Then we must introduce the "process noise".  
+
+<img src="http://latex.codecogs.com/gif.latex?Q" /> - the covariance of the process noise <img src="http://latex.codecogs.com/gif.latex?w_k" />
+
+<img src="http://latex.codecogs.com/gif.latex?P_k=AP_{k-1}A^T+Q" />
+
+even very small value of nonzero element in Q turn out to be very helpful in keeping the estimate value on track.
+
+##### nonlinear
+
+Since we know that all our equations below represents a linear situation, but most of our daily movements are nonlinear.
+
+In a linear situation:
+
+<img src="http://latex.codecogs.com/gif.latex?f%28%5Cbegin%7Bbmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bbmatrix%7D%29%3D%20%5Cbegin%7Bbmatrix%7D%20a%26b%5C%5C%20c%26d%20%5Cend%7Bbmatrix%7D%20%5Cbegin%7Bbmatrix%7D%20x%5C%5C%20y%20%5Cend%7Bbmatrix%7D%3D%20%5Cbegin%7Bbmatrix%7D%20ax&plus;by%5C%5C%20cx&plus;dy%20%5Cend%7Bbmatrix%7D" />
+
+but in a nonlinear situation:
+
+<img src="http://latex.codecogs.com/gif.latex?f%28%5Cbegin%7Bbmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bbmatrix%7D%29%3D%20%5Cbegin%7Bbmatrix%7D%20a%26b%5C%5C%20c%26d%20%5Cend%7Bbmatrix%7D%20%5Cbegin%7Bbmatrix%7D%20x%5C%5C%20y%20%5Cend%7Bbmatrix%7D%3D%20%5Cbegin%7Bbmatrix%7D%20ax&plus;by%5C%5C%20cx&plus;dy%20%5Cend%7Bbmatrix%7D" />
+
+##### A nonlinear kalman filter
+
+consider a nonlinear filter, we use <img src="http://latex.codecogs.com/gif.latex?h" /> to represent a nonlinear function like ln(x), and <img src="http://latex.codecogs.com/gif.latex?c_k" /> means its first derivative at timestep <img src="http://latex.codecogs.com/gif.latex?k" />
+
+***MODEL:***
+
+<img src="http://latex.codecogs.com/gif.latex?x_k=x_{k-1}+w_k" />
+
+<img src="http://latex.codecogs.com/gif.latex?z_k=h(x_{k-1})+v_k" />
+
+***PREDICT:***
+
+<img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=\hat{x}_{k-1}" />
+
+<img src="http://latex.codecogs.com/gif.latex?p_k=p_{k-1}+q" />
+
+***UPDATE:***
+
+<img src="http://latex.codecogs.com/gif.latex?g_k=p_kc_k(c_kp_kc_k+r)^{-1}" />
+
+<img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=\hat{x}_k+g_k(z_k-h(\hat{x}_k))" />
+
+<img src="http://latex.codecogs.com/gif.latex?p_k=(1-g_kc_k)p_k" />
+
+##### Computing the derivative
+
+now, we should compute the first derivative from an actual signal, without knowing the underlying function.
+
+finite difference formula is often a very good approximation to the first derivative.
+
+If one signal is a function of another signal, we can divide successive differences of the first signal by signal by successive differences of the second signal:
+
+<img src="http://latex.codecogs.com/gif.latex?\frac{z_{k+1}-z_k}{x_{k+1}-x_k}" />
+
+##### The Jacobian
+
+now we should generalize our single-valued nonlinear observation model to a multi-valued system.
+
+For a system with two state values and three sensors, we can rewrite this as:
+
+<img src="http://latex.codecogs.com/gif.latex?z_k%3D%5Cbegin%7Bbmatrix%7D%20c_%7B11%7D%20%26c_%7B12%7D%20%5C%5C%20c_%7B21%7D%20%26c_%7B22%7D%20%5C%5C%20c_%7B31%7D%20%26c_%7B32%7D%20%5Cend%7Bbmatrix%7D%20%5Cbegin%7Bbmatrix%7D%20x_%7Bk1%7D%20%5C%5C%20x_%7Bk2%7D%20%5Cend%7Bbmatrix%7D%3D%20%5Cbegin%7Bbmatrix%7D%20c_%7B11%7Dx_%7Bk1%7D&plus;c_%7B12%7Dx_%7Bk2%7D%20%5C%5C%20c_%7B21%7Dx_%7Bk1%7D&plus;c_%7B22%7Dx_%7Bk2%7D%20%5C%5C%20c_%7B31%7Dx_%7Bk1%7D&plus;c_%7B32%7Dx_%7Bk2%7D%20%5Cend%7Bbmatrix%7D" />
+
+the <img src="http://latex.codecogs.com/gif.latex?c_{11}" /> means the coefficient relating the current value <img src="http://latex.codecogs.com/gif.latex?z_{k1}" /> of the first sensor to the second component <img src="http://latex.codecogs.com/gif.latex?x_{k2}" /> of the current state.
+
+ For a nonlinear model, there will likewise be a matrix whose number of rows equals the number of sensors and number of columns equals the number of states. However, the matrix would contain the first derivative of the sensor value with respect to the state value. These are called partial derivative, and the matrix of such derivatives called the Jacobian.
+
+ In other words, our linear model
+
+ <img src="http://latex.codecogs.com/gif.latex?x_k=Ax_{k-1}+w_k" />
+
+ becomes
+
+ <img src="http://latex.codecogs.com/gif.latex?x_k=f(x_{k-1})+w_k" />
+
+ where <img src="http://latex.codecogs.com/gif.latex?A" /> is replaced by the Jacobian of the state-transition function <img src="http://latex.codecogs.com/gif.latex?f" /> , and use <img src="http://latex.codecogs.com/gif.latex?H_k" /> for the Jacobian of the sensor function <img src="http://latex.codecogs.com/gif.latex?h" />.
+
+ So:
+
+ ***MODEL:***
+
+ <img src="http://latex.codecogs.com/gif.latex?x_k=f(x_{k-1},u_k)+w_k" />
+
+ <img src="http://latex.codecogs.com/gif.latex?z_k=h(x_{k})+v_k" />
+
+ ***PREDICT:***
+
+ <img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=f(\hat{x}_{k-1}, u_k)" />
+
+ <img src="http://latex.codecogs.com/gif.latex?P_k=F_{k-1}P_{k-1}F_{k-1}^T+Q_{k-1}" />
+
+ ***UPDATE:***
+
+ <img src="http://latex.codecogs.com/gif.latex?G_k=P_kH_k^T(H_kP_kH_k^T+R)^{-1}" />
+
+ <img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=\hat{x}_k+G_k(z_k-h(\hat{x}_k))" />
+
+ <img src="http://latex.codecogs.com/gif.latex?P_k=(I-G_kH_k)P_k" />
 
 ### Particle Filter
 
