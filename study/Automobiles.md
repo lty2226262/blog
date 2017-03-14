@@ -410,7 +410,7 @@ the <img src="http://latex.codecogs.com/gif.latex?c_{11}" /> means the coefficie
 
  ***PREDICT:***
 
- <img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=f(\hat{x}_{k-1}, u_k)" />
+ <img src="http://latex.codecogs.com/gif.latex?\hat{x}_k=f(\hat{x}_{k-1},u_k)" />
 
  <img src="http://latex.codecogs.com/gif.latex?P_k=F_{k-1}P_{k-1}F_{k-1}^T+Q_{k-1}" />
 
