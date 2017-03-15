@@ -398,7 +398,7 @@ the <img src="http://latex.codecogs.com/gif.latex?c_{11}" /> means the coefficie
 
  <img src="http://latex.codecogs.com/gif.latex?x_k=f(x_{k-1})+w_k" />
 
- where <img src="http://latex.codecogs.com/gif.latex?A" /> is replaced by the Jacobian of the state-transition function <img src="http://latex.codecogs.com/gif.latex?f" /> , and use <img src="http://latex.codecogs.com/gif.latex?H_k" /> for the Jacobian of the sensor function <img src="http://latex.codecogs.com/gif.latex?h" />.
+ where <img src="http://latex.codecogs.com/gif.latex?A" /> is replaced by the Jacobian of the state-transition function <img src="http://latex.codecogs.com/gif.latex?f" /> ,use <img src="http://latex.codecogs.com/gif.latex?F_k" /> for the Jacobian of the transition function <img src="http://latex.codecogs.com/gif.latex?f" />, and use <img src="http://latex.codecogs.com/gif.latex?H_k" /> for the Jacobian of the sensor function <img src="http://latex.codecogs.com/gif.latex?h" />.
 
  So:
 
