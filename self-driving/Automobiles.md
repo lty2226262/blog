@@ -400,6 +400,13 @@ the <img src="http://latex.codecogs.com/gif.latex?c_{11}" /> means the coefficie
 
  where <img src="http://latex.codecogs.com/gif.latex?A" /> is replaced by the Jacobian of the state-transition function <img src="http://latex.codecogs.com/gif.latex?f" /> ,use <img src="http://latex.codecogs.com/gif.latex?F_k" /> for the Jacobian of the transition function <img src="http://latex.codecogs.com/gif.latex?f" />, and use <img src="http://latex.codecogs.com/gif.latex?H_k" /> for the Jacobian of the sensor function <img src="http://latex.codecogs.com/gif.latex?h" />.
 
+ an example for Jacobian:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20x_%7Bt&plus;1%7D%3Dx_%7Bt%7D&plus;x%27_t%5C%5C%20x%27_%7Bt&plus;1%7D%3D%20x%27_%7Bt%7D%20%5Cend%7Bmatrix%7D%5Cright." />
+
+the <img src="http://latex.codecogs.com/gif.latex?F_{k}" /> is <img src="http://latex.codecogs.com/gif.latex?%5Cbegin%7Bbmatrix%7D%20x_%7Bnew%7D%5C%5C%20x%27_%7Bnew%7D%20%5Cend%7Bbmatrix%7D%3D%20%5Cbegin%7Bbmatrix%7D%20%5Cfrac%7B%5Cpartial%20x%7D%7B%5Cpartial%20x%7D%20%26%20%5Cfrac%7B%5Cpartial%20x%7D%7B%5Cpartial%20x%27%7D%20%5C%5C%20%5Cfrac%7B%5Cpartial%20x%27%7D%7B%5Cpartial%20x%7D%20%26%20%5Cfrac%7B%5Cpartial%20x%27%7D%7B%5Cpartial%20x%27%7D%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%20x%5C%5C%20x%27%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%201%20%26%201%5C%5C%200%20%26%201%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%20x%5C%5C%20x%27%20%5Cend%7Bbmatrix%7D" />
+
+
  So:
 
  ***MODEL:***
