@@ -25,9 +25,9 @@ a slam system divided into 4 modules:
 key to practice:
 
 1. A is invertible, which means that the rank of a m-by-m matrix equals m.
-2. multivariate normal distribution: is a generalization of the one-dimensional normal distribution to higher dimensions. The multivariate normal distribution of a k-dimensional random vector <img src="http://latex.codecogs.com/gif.latex?x%3D%5Bx_1%2C%20x_2%2C%20...%2C%20x_k%5D" \> can be written in the following notation:
+2. multivariate normal distribution: is a generalization of the one-dimensional normal distribution to higher dimensions. The multivariate normal distribution of a k-dimensional random vector <img src="http://latex.codecogs.com/gif.latex?x%3D%5Bx_1%2C%20x_2%2C%20...%2C%20x_k%5D" > can be written in the following notation:
 
- <img src="http://latex.codecogs.com/gif.latex?x\sim%20N_k(\mu,%20\Sigma)" \>
+ <img src="http://latex.codecogs.com/gif.latex?x\sim%20N_k(\mu,%20\Sigma)" >
 3.  class: classes are an expanded concept of data structures, like data structures, they can contain data members, but they can also contain functions as members.
 
   template: a template is a blueprint or formula for creating a generic class or a function.

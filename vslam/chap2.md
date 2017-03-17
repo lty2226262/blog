@@ -48,7 +48,7 @@ topological map: a graph, consist of plot and edge.
 
 ## problem description
 
-<img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20x_k%3Df%28x_%7Bk-1%7D%2C%20u_k%2C%20w_k%29%5C%5C%20z_%7Bk%2Cj%7D%20%3D%20h%28y_j%2C%20x_k%2C%20v_%7Bk%2Cj%7D%29%20%5Cend%7Bmatrix%7D%5Cright." \>
+<img src="http://latex.codecogs.com/gif.latex?%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20x_k%3Df%28x_%7Bk-1%7D%2C%20u_k%2C%20w_k%29%5C%5C%20z_%7Bk%2Cj%7D%20%3D%20h%28y_j%2C%20x_k%2C%20v_%7Bk%2Cj%7D%29%20%5Cend%7Bmatrix%7D%5Cright." >
 
 so we know the measurement u and z to solve the localization x and mapping y is the key problem.
 
