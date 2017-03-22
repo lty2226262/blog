@@ -242,3 +242,9 @@ To be mentioned, q and -q represent the same rotation so the result of computing
 <td>Intersection and tangency of contact surface</td>
 </tr>
 </table>
+
+s is the scale factor.
+
+A is a reversible matrix.
+
+a is scale factor.
