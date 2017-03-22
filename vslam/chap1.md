@@ -1,6 +1,6 @@
-#vSlam
+# vSlam
 
-##1 Intro
+## Intro
 
 slam - simultaneous localization and mapping
 
