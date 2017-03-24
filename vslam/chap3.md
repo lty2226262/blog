@@ -10,7 +10,7 @@ inner-product could represent the projection between two vectors.
 
 <img src="http://latex.codecogs.com/gif.latex?a%5Ctimes%20b%3D%5Cbegin%7Bbmatrix%7D%20i%20%26%20j%20%26%20k%5C%5C%20a_1%20%26%20a_2%20%26%20a_3%5C%5C%20b_1%20%26b_2%20%26b_3%20%5Cend%7Bbmatrix%7D%3D%5Cbegin%7Bbmatrix%7D%20a_2b_3-a_3b_2%5C%5C%20a_3b_1-a_1b_3%5C%5C%20a_1b_2-a_2b_1%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%200%20%26%20-a_3%20%26%20a_2%5C%5C%20a_3%20%26%200%20%26%20-a_1%5C%5C%20-a_2%20%26%20a_1%20%26%200%20%5Cend%7Bbmatrix%7D%20b%20%3D%20a%20%5Cwedge%20b" >
 
-the direction of outer-product is perpendicular to these two vectors, the length is  <img src="http://latex.codecogs.com/gif.latex?\mid%20a\mid\mid%20b\mid%20sin<a,b>" >. we introduce a mark <img src="http://latex.codecogs.com/gif.latex?\wedge" >, and a is a matrix.
+the direction of outer-product is perpendicular to these two vectors, the length is  <img src="http://latex.codecogs.com/gif.latex?\mid%20a\mid\mid%20b\mid%20sin%3Ca,b%3E" >. we introduce a mark <img src="http://latex.codecogs.com/gif.latex?\wedge" >, and a is a matrix.
 
 outer-product is only meaning to 3D vector. we could represent rotation with this.
 
