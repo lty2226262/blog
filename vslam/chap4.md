@@ -192,3 +192,109 @@ The product of two lie algebras is given by Baker-campbell-hausdorff(BCH formula
 []is Lie bracket, especially, when we consider Lie Algebra on SO(3) <img src="http://latex.codecogs.com/gif.latex?ln%28exp%28%5Cphi%20%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29%29%5E%5Cvee%20%5Capprox%20%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20J_l%28%5Cphi%20_2%29%5E%7B-1%7D%5Cphi%20_1%20&plus;%20%5Cphi%20_2%2C%20%5C%3B%20if%5C%3B%20%5Cphi%20_1%5C%3B%20is%5C%3B%20small%5C%5C%20J_r%28%5Cphi%20_1%29%5E%7B-1%7D%5Cphi%20_2%20&plus;%20%5Cphi%20_1%2C%20%5C%3B%20if%5C%3B%20%5Cphi%20_2%5C%3B%20is%5C%3B%20small%20%5Cend%7Bmatrix%7D%5Cright.">
 
 This formula tells us that if we left multiply a small rotation matrix <img src="http://latex.codecogs.com/gif.latex?R_1"> (Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cphi%20_1">) to a rotation matrix <img src="http://latex.codecogs.com/gif.latex?R_2"> (Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cphi%20_2">), we could approximately treat them as we add a <img src="http://latex.codecogs.com/gif.latex?J_l%28%5Cphi%20_2%29%5E%7B-1%7D%5Cphi%20_1"> to the original Lie algebra <img src="http://latex.codecogs.com/gif.latex?%5Cphi%20_2">.
+
+If we left multiply BCH we could get the approximate Jacobi:
+
+<img src="http://latex.codecogs.com/gif.latex?J_l%3DJ%3D%20%5Cfrac%7Bsin%5Ctheta%7D%7B%5Ctheta%7DI&plus;%281-%5Cfrac%7Bsin%5Ctheta%7D%7B%5Ctheta%7D%29aa%5ET&plus;%5Cfrac%7B1-cos%5Ctheta%7D%7B%5Ctheta%7Da%5E%5Cwedge">
+
+Its inverse is:
+
+<img src="http://latex.codecogs.com/gif.latex?J_l%5E%7B-1%7D%3D%5Cfrac%7B%5Ctheta%7D%7B2%7Dcot%5Cfrac%7B%5Ctheta%7D%7B2%7DI&plus;%281-%5Cfrac%7B%5Ctheta%7D%7B2%7Dcot%5Cfrac%7B%5Ctheta%7D%7B2%7D%29aa%5ET-%5Cfrac%7B%5Ctheta%7D%7B2%7Da%5E%5Cwedge">
+
+when we right multiply Jacobi we should just negate the independent variables:
+
+<img src="http://latex.codecogs.com/gif.latex?J_r%28%5Cphi%29%3DJ_l%28-%5Cphi%29">
+
+suppose a rotation R, its Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cphi">. when we left multiply a small rotation, denoted as <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20R">, and its Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20%5Cphi">. Then on Lie group, we could get the result <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20R%20%5Ccdot%20R">, and on Lie algebra, due to BCH approximate, we could get the result is <img src="http://latex.codecogs.com/gif.latex?J_l%5E%7B-1%7D%28%5Cphi%29%5CDelta%20%5Cphi%20&plus;%20%5Cphi">. To conclude, we could get the result:
+
+<img src="http://latex.codecogs.com/gif.latex?exp%28%5CDelta%5Cphi%20%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29%3Dexp%28%28%5Cphi%20&plus;%20J_l%5E%7B-1%7D%28%5Cphi%29%5CDelta%20%5Cphi%29%5E%5Cwedge%29">
+
+On contrary, we could do addition on Lie algebra, and let a <img src="http://latex.codecogs.com/gif.latex?%5Cphi"> add <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20%5Cphi">, then we could approximately left or right Jacobi multiply on Lie Group:
+
+ <img src="http://latex.codecogs.com/gif.latex?exp%28%28%5Cphi%20&plus;%20%5CDelta%20%5Cphi%29%5E%5Cwedge%29%20%3D%20exp%28%28J_l%5CDelta%20%5Cphi%29%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29%3Dexp%28%5Cphi%20%5E%20%5Cwedge%20%29exp%28%28J_r%5CDelta%20%5Cphi%29%5E%5Cwedge%29">
+
+ As for SE(3), there exists BCH approximate formula:
+
+ <img src="http://latex.codecogs.com/gif.latex?exp%28%5CDelta%20%5Cxi%20%5E%5Cwedge%29exp%28%5Cxi%20%5E%5Cwedge%29%5Capprox%20exp%28%28%5Ctau_l%5E%7B-1%7D%5CDelta%5Cxi%20&plus;%20%5Cxi%20%29%5E%5Cwedge%29%2C%20%5C%5C%20exp%28%5Cxi%20%5E%5Cwedge%29exp%28%5CDelta%20%5Cxi%5E%5Cwedge%29%5Capprox%20exp%28%28%5Ctau_r%5E%7B-1%7D%5CDelta%5Cxi&plus;%5Cxi%29%5E%5Cwedge%29">
+
+ <img src="http://latex.codecogs.com/gif.latex?%5Ctau%20_l"> is a <img src="http://latex.codecogs.com/gif.latex?6%5Ctimes%206"> matrix. we don't introduce it in detail because we don't use them in computation.
+
+ ### SO(3) Lie Algebra derivate
+
+ On SLAM, we should estimate the position and orientation of a camera, this pose is described by the SO(3) or SE(3). Suppose the pose of robot is T. It watches a point whose ordinate in the world is p, and its observed measurement is z. Hence, due to ordinate transformation relationship, we could get:
+
+ <img src="http://latex.codecogs.com/gif.latex?z%3DTp&plus;w">
+
+ Because of the noise w, z could not be described exactly by <img src="http://latex.codecogs.com/gif.latex?z%3DTp">. So we could get the error of observation and the actual data:
+
+ <img src="http://latex.codecogs.com/gif.latex?e%3Dz-Tp">
+
+ suppose we have a number of N such landmarks or observations, so we have N formulas above. Then we could get the best estimation of T, which could minimize the global error:
+
+ <img src="http://latex.codecogs.com/gif.latex?min_TJ%28T%29%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%5Cleft%20%5C%7C%20z_i-Tp_i%20%5Cright%20%5C%7C_2%5E2">
+
+ To solve this problem, we should differentiating the target J with respect to T. We should usually build the function with regard to the pose, and discuss the differentiating of this function with respect to the pose to adjust current estimation. However, SO(3) and SE(3) don't define the addition very well because we must consider the constrains. However, when we transform them to Lie algebra, so they have a good addition operation. Hence, to solve the differentiating problem we have two solution methods:
+
+ 1. We represent pose with Lie Algebra, and compute the derivation according to the Lie Algebra addition.
+
+ 2. Left or right multiply a small perturbation to the Lie group, and then compute the derivation of this perturbation, it's called left perturbation or right perturbation module.
+
+### Lie algebra derivation
+
+First of all, consider the situation of SO(3). Suppose we rotate a spatial point p, then get Rp. Now, we should compute the derivation with respect to the rotation after rotation, we could note it informally:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20%28Rp%29%7D%7B%5Cpartial%20R%7D">
+
+Because that SO(3) don't have the addition operation, so we couldn't compute this derivation according to the definition of the derivation. Suppose <img src="http://latex.codecogs.com/gif.latex?%5Cphi"> is the corresponding Lie algebra of R. so we turn to compute:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20%28exp%28%5Cphi%20%5E%5Cwedge%29p%29%7D%7B%5Cpartial%20%5Cphi%7D">
+
+According to the definition of derivation:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20%28exp%28%5Cphi%20%5E%5Cwedge%29p%29%7D%7B%5Cpartial%20%5Cphi%7D%3Dlim_%7B%5Cdelta%20%5Cphi%20%5Crightarrow%200%7D%5Cfrac%7Bexp%28%28%5Cphi&plus;%5Cdelta%20%5Cphi%29%5E%5Cwedge%29p-exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%20%5Cphi%7D%5C%5C%20%3Dlim_%7B%5Cdelta%20%5Cphi%20%5Crightarrow%200%7D%5Cfrac%7Bexp%28%28J_l%5Cdelta%20%5Cphi%29%5E%5Cwedge%29%20exp%28%5Cphi%20%5E%5Cwedge%29p-exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%20%5Cphi%7D%5C%5C%20%5Capprox%20lim_%7B%5Cdelta%20%5Cphi%20%5Crightarrow%200%7D%5Cfrac%7B%28I&plus;%28J_l%5Cdelta%20%5Cphi%29%5E%5Cwedge%29exp%28%5Cphi%20%5E%20%5Cwedge%29p-exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%5Cphi%7D%5C%5C%20%3Dlim_%7B%5Cdelta%20%5Cphi%20%5Crightarrow%200%7D%5Cfrac%7B%28J_l%5Cdelta%5Cphi%29%5E%5Cwedge%20exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%20%5Cphi%7D%5C%5C%20%3Dlim_%7B%5Cdelta%20%5Cphi%20%5Crightarrow%200%7D%5Cfrac%7B-%28exp%28%5Cphi%20%5E%5Cwedge%29p%29%5E%5Cwedge%20J_l%20%5Cdelta%20%5Cphi%7D%7B%5Cdelta%5Cphi%7D%3D-%28Rp%29%5E%5Cwedge%20J_l">
+
+The second line is approximately BCH linear transformation, the third line is the approximately Taylor expansion and round the higher order components. The fourth line and fifth line could be considered as a cross product and after transformation we change the sign. Hence, we get the derivation of the rotated point with respect to Lie algebra:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%28Rp%29%7D%7B%5Cpartial%5Cphi%7D%3D%28-Rp%29%5E%5Cwedge%20J_l">
+
+but this also contains a complicated <img src="http://latex.codecogs.com/gif.latex?J_l"> , which is difficult to compute.
+
+## Perturbation model(left multiply)
+
+Another method of computing the derivation is to make a small perturbation to the rotation. This perturbation could be left multiply of right multiply, the result could be a little bit different, now we take the left multiply for instance. Suppose the left perturbation <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20R">'s corresponding Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cvarphi">. Then, compute the derivation with respect to <img src="http://latex.codecogs.com/gif.latex?%5Cvarphi">:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20%28Rp%29%7D%7B%5Cpartial%20%5Cvarphi%7D%3Dlim_%7B%5Cvarphi%20%5Crightarrow%200%7D%5Cfrac%7Bexp%28%5Cvarphi%20%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29p-exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cvarphi%7D">
+
+To compute the derivation of this formula is easier:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%20%28Rp%29%7D%7B%5Cpartial%20%5Cvarphi%7D%3Dlim_%7B%5Cvarphi%20%5Crightarrow%200%7D%5Cfrac%7Bexp%28%5Cvarphi%20%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29p-exp%28%5Cphi%20%5E%5Cwedge%29p%7D%7B%5Cvarphi%7D%20%5C%5C%20%5Capprox%20lim_%7B%5Cvarphi%20%5Crightarrow%200%7D%5Cfrac%7B%281&plus;%5Cvarphi%20%5E%5Cwedge%29exp%28%5Cphi%20%5E%5Cwedge%29p-exp%28%5Cphi%20%5E%20%5Cwedge%29p%7D%7B%5Cvarphi%7D%5C%5C%20%3Dlim_%7B%5Cvarphi%20%5Crightarrow%200%7D%5Cfrac%7B%5Cvarphi%20%5E%5Cwedge%20Rp%7D%7B%5Cvarphi%7D%3Dlim_%7B%5Cvarphi%20%5Crightarrow%200%7D%5Cfrac%7B-%28Rp%29%5E%5Cwedge%20%5Cvarphi%7D%7B%5Cvarphi%7D%3D-%28Rp%29%5E%5Cwedge">
+
+## Lie algebra derivate on SE(3)
+
+At last, we give the perturbation model of SE(3), suppose a spatial point p make a transformation T(whose lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cxi">), and get Tp. Now, give a left multiply perturbation to T, <img src="http://latex.codecogs.com/gif.latex?%5CDelta%20T%20%3D%20exp%28%5Cdelta%20%5Cxi%20%5E%20%5Cwedge%29">, and suppose the perturbation Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cdelta%20%5Cxi%20%3D%20%5B%5Cdelta%20%5Crho%2C%20%5Cdelta%5Cphi%5D%5ET">, and then:
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7B%5Cpartial%28Tp%29%7D%7B%5Cpartial%20%5Cdelta%20%5Cxi%7D%3Dlim_%7B%5Cdelta%5Cxi%20%5Crightarrow%200%7D%20%5Cfrac%7Bexp%28%5Cdelta%20%5Cxi%20%5E%5Cwedge%29exp%28%5Cxi%20%5E%5Cwedge%29p-exp%28%5Cxi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%20%5Cxi%7D%5C%5C%20%5Capprox%20lim_%7B%5Cdelta%5Cxi%20%5Crightarrow%200%7D%20%5Cfrac%7B%28I&plus;%5Cdelta%5Cxi%20%5E%5Cwedge%29exp%28xi%20%5E%5Cwedge%29p-exp%28%5Cxi%20%5E%5Cwedge%29p%20%7D%7B%5Cdelta%20%5Cxi%7D%5C%5C%20%3D%20lim_%7B%5Cdelta%20%5Cxi%20%5Crightarrow%200%7D%5Cfrac%7B%5Cdelta%20%5Cxi%20%5E%7B%5Cwedge%7Dexp%28%5Cxi%20%5E%5Cwedge%29p%7D%7B%5Cdelta%20%5Cxi%7D%5C%5C%20%3Dlim_%7B%5Cdelta%20%5Cxi%20%5Crightarrow%200%7D%5Cfrac%7B%5Cbegin%7Bbmatrix%7D%20%5Cdelta%5Cphi%20%5E%5Cwedge%20%26%5Cdelta%5Crho%20%5C%5C%200%5ET%20%260%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%20Rp&plus;t%20%5C%5C%201%20%5Cend%7Bbmatrix%7D%7D%7B%5Cdelta%20%5Cxi%7D%5C%5C%20%3Dlim_%7B%5Cdelta%5Cxi%20%5Crightarrow%200%7D%20%5Cfrac%7B%5Cbegin%7Bbmatrix%7D%20%5Cdelta%20%5Cphi%20%5E%5Cwedge%20%28Rp&plus;t%29&plus;%5Cdelta%20%5Crho%5C%5C%200%20%5Cend%7Bbmatrix%7D%7D%7B%5Cdelta%5Cxi%7D%3D%5Cbegin%7Bbmatrix%7D%20I%20%26-%28Rp&plus;t%29%5E%5Cwedge%20%5C%5C%200%5ET%20%26%200%5ET%20%5Cend%7Bbmatrix%7D%3D%20%28Tp%29%5E%5Codot">
+
+We define a symbol <img src=http://latex.codecogs.com/gif.latex?%5E%5Codot>, it could convert  a homogenous coordinate spatial point to a <img src="http://latex.codecogs.com/gif.latex?4%5Ctimes%206"> matrix.
+
+# Similarity transformations group and Lie algebra
+
+In monocular vision, we use similarity transformations group Sim(3), and the corresponding Lie algebra is <img src="http://latex.codecogs.com/gif.latex?%5Cmathfrak%7Bsim%283%29%7D">. For a spatial point p, the camera coordination need a similarity transformation, but not a Euclidean transformation:
+
+<img src="http://latex.codecogs.com/gif.latex?p%27%3D%5Cbegin%7Bbmatrix%7D%20sR%20%26%20t%20%5C%5C%200%5ET%20%261%20%5Cend%7Bbmatrix%7Dp%3DsRp&plus;t">
+
+In the similar transformation, we express the transformation with the parameter s. Similar to SO(3) and SE(3), similarity transformation and the matrix multiply consist the similarity transformation group Sim(3):
+
+<img src="http://latex.codecogs.com/gif.latex?Sim%283%29%3D%5Cleft%20%5C%7B%20%5Cleft%20%5B%20S%3D%5Cbegin%7Bmatrix%7D%20sR%20%26t%20%5C%5C%200%5ET%20%26%201%20%5Cend%7Bmatrix%7D%20%5Cright%20%5D%20%5Cin%20R%5E%7B4%5Ctimes%204%7D%20%5Cright%20%5C%7D">
+
+Sim(3) also has its corresponding Lie algebra, exponential map, logical map. Lie algebra <img src="http://latex.codecogs.com/gif.latex?%5Cmathfrak%7Bsim%283%29%7D">'s element is a 7D vector <img src="http://latex.codecogs.com/gif.latex?%5Czeta">. Its former 6D element is the same as <img src="http://latex.codecogs.com/gif.latex?%5Cmathfrak%7Bse%283%29%7D">, and plus an element <img src="http://latex.codecogs.com/gif.latex?%5Csigma">.
+
+<img src="http://latex.codecogs.com/gif.latex?%5Cmathfrak%7Bsim%283%29%7D%3D%5Cleft%20%5C%7B%20%5Czeta%20%5Cmid%20%5Czeta%20%3D%5Cleft%20%5B%20%5Cbegin%7Bmatrix%7D%20%5Crho%5C%5C%20%5Cphi%5C%5C%20%5Csigma%20%5Cend%7Bmatrix%7D%20%5Cright%20%5D%20%5Cin%20R%5E7%2C%20%5Czeta%20%5E%5Cwedge%20%3D%20%5Cbegin%7Bbmatrix%7D%20%5Csigma%20I%20&plus;%20%5Cphi%20%5E%20%5Cwedge%20%26%20%5Crho%20%5C%5C%200%5ET%20%26%200%20%5Cend%7Bbmatrix%7D%20%5Cin%20R%20%5E%7B4%5Ctimes%204%7D%20%5Cright%20%5C%7D">
+
+Exponential map is:
+
+<img src="http://latex.codecogs.com/gif.latex?exp%28%5Czeta%20%5E%5Cwedge%29%3D%5Cbegin%7Bbmatrix%7D%20e%5E%5Csigma%20exp%28%5Cphi%20%5E%5Cwedge%29%20%26%20J_s%20%5Crho%20%5C%5C%200%5ET%20%26%201%20%5Cend%7Bbmatrix%7D">
+
+and the <img src="http://latex.codecogs.com/gif.latex?J_s"> is:
+
+<img src="http://latex.codecogs.com/gif.latex?J_s%3D%5Cfrac%7Be%20%5E%20%5Csigma%20-1%7D%7B%5Csigma%7DI&plus;%5Cfrac%7B%5Csigma%20e%20%5E%20%5Csigma%20sin%20%5Ctheta%20&plus;%20%281%20-%20e%20%5E%20%5Csigma%20cos%20%5Ctheta%29%5Ctheta%7D%7B%5Csigma%20%5E2%20&plus;%20%5Ctheta%20%5E%202%7Da%5E%5Cwedge%5C%5C%20&plus;%28%5Cfrac%7Be%5E%5Csigma%20-%201%7D%7B%5Csigma%7D%20-%20%5Cfrac%7B%28e%5E%5Csigma%20cos%20%5Ctheta%20-%201%29%5Csigma%20&plus;%20%28e%20%5E%20%5Csigma%20sin%20%5Ctheta%29%5Ctheta%7D%7B%5Csigma%20%5E2%20&plus;%20%5Ctheta%20%5E%202%7D%29a%5E%5Cwedge%20a%5E%5Cwedge">
