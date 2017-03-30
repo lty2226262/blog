@@ -1,6 +1,6 @@
 # Automobiles
 
-## Lesson 1 localization
+## Localization
 
 ### localization
 
