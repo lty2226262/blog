@@ -155,4 +155,107 @@ integration和de-integration方式解决位姿优化后重建场景更新问题�
 1. 2017-BundleFusion: Real-time Globally Consistent 3D Reconstruction using Online Surface Re-integration
 
 分析参考：
-1、http://blog.csdn.net/fuxingyin/article/details/52921958
+1. http://blog.csdn.net/fuxingyin/article/details/52921958
+
+
+# hector_slam
+ROS wiki： http://wiki.ros.org/hector_slam
+
+算法要点： 需要高更新频率小测量噪声的激光扫描仪.  不需要里程计,使空中无人机与地面小车在不平坦区域运行存在运用的可能性. 利用已经获得的地图对激光束点阵进行优化, 估计激光点在地图的表示,和占据网格的概率.其中扫描匹配利用的是高斯牛顿的方法进行求解. 找到激光点集映射到已有地图的刚体转换(x,y,theta).( 接触的匹配的方法还有最近邻匹配的方法(ICP) ,gmapping代码中的scanmatcher部分有两种方法选择. )为避免局部最小而非全局最优的(类似于多峰值模型的,局部梯度最小了,但非全局最优)出现,地图采用多分辨率的形式.导航中的状态估计可以加入惯性测量，进行ＥＫＦ滤波．
+
+分析参考： An evaluation of 2D SLAM techniques available in robot operating system
+
+# gmapping
+
+gmapping是目前应用最广的2D slam 方法（2014年），利用RBPF方法，故需要了解粒子滤波算法。scan-match方法在于估计机器人位置（pose），利用梯度下降的方法，在当前构建的地图，与当前的激光点，和机器人位置（pose）为初始估计值。
+
+粒子滤波的方法一般需要大量的粒子来获取好的结果,但这必会引入计算的复杂度;粒子是一个依据过程的观测逐渐更新权重与收敛的过程,这种重采样的过程必然会代入粒子耗散问题(depletion problem), 大权重粒子显著,小权重粒子会消失(有可能正确的粒子模拟可能在中间的阶段表现权重小而消失).自适应重采样技术引入减少了粒子耗散问题 , 计算粒子分布的时候不单单仅依靠机器人的运动(里程计),同时将当前观测考虑进去, 减少了机器人位置在粒子滤波步骤中的不确定性. (FAST-SLAM 2.0 的思想，可以适当减少粒子数)
+
+缺点：依赖里程计（odometry），无法适用无人机及地面小车不平坦区域；无回环；
+
+优点：在长廊及低特征场景中建图效果好；
+
+ROS wiki：http://wiki.ros.org/gmapping
+
+ROS wiki：http://wiki.ros.org/slam_gmapping
+
+官方文档：https://www.openslam.org/gmapping.html
+
+分析参考： An evaluation of 2D SLAM techniques available in robot operating system
+
+# Google Cartographer
+
+cartographer是Google的实时室内建图项目，传感器安装在背包上面，可以生成分辨率为5cm的2D格网地图。
+
+获得的每一帧laser scan数据，利用scan match在最佳估计位置处插入子图（submap）中，且scan matching只跟当前submap有关。在生成一个submap后，会进行一次局部的回环（loop close），利用分支定位和预先计算的网格，所有submap完成后，会进行全局的回环。
+
+ROS wiki： http://wiki.ros.org/cartographer
+
+文档：https://google-cartographer-ros.readthedocs.io/en/latest/
+
+Turtlebot应用文档：https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/
+
+Turtlebot引用Github：https://github.com/googlecartographer/cartographer_turtlebot
+
+优点：没有里程计数据，没有imu数据，只有单独的scan matching. 不进行粒子滤波，计算性能要求较低，可用于工业级产品。
+
+
+
+# 2014 DSO
+
+算法要点：在图像management上要保留7个关键帧，新来的每帧图像会和最近的帧的特征进行比较，优化新图像的姿态(Localization)。到了一定范围之后就要添加新的关键帧，把所有关键帧一起优化(Mapping)，来更新3D点的位置。右边是运行示意图，上边那些黑色的点是历史建出来的3D点的点云。 直接法。
+
+介绍：http://blog.csdn.net/heyijia0327/article/details/53173146
+
+github：https://github.com/JakobEngel/dso
+
+官网：https://vision.in.tum.de/research/vslam/dso?redirect=1
+
+参考文献： Herrera C., D., Kim, K., Kannala, J., Pulli, K., Heikkila, J., DT-SLAM: Deferred Triangulation for Robust SLAM, 3DV, 2014.
+
+
+# RTAB-MAP
+Turtlebot应用教程：http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot
+
+Turtlebot应用：http://official-rtab-map-forum.67519.x6.nabble.com/Demo-RTAB-Map-on-Turtlebot-td439.html
+
+Turtlebot应用：https://mahsaparsapour.wordpress.com/tutorials/ros-2/rtab-map-on-turtlebot/
+
+ROS wiki教程：http://wiki.ros.org/rtabmap_ros/Tutorials
+
+文档：https://introlab.github.io/rtabmap/
+
+ROS wiki：http://wiki.ros.org/rtabmap
+
+ROS wiki：http://wiki.ros.org/rtabmap_ros
+
+Turtlebot应用：http://patilnabhi.github.io/portfolio/tbotnav (with RTAB-Map, Hand-Gestures, Face Recognition & AR Code Tracking)
+
+
+# 2014 LSD-SLAM
+
+算法简介：半稠密地图
+
+介绍：http://www.lai18.com/content/8221766.html
+
+github：https://github.com/tum-vision/lsd_slam
+
+优点：单目SLAM，我们可以匹配两个图像间的像素，或者像图像与一个全局的模型相匹配
+
+缺点：直接法比特征VO需要更多的计算量，而且对相机的图像采集速率也有较高的要求。
+
+参考文献： LSD-SLAM: Large-Scale Direct Monocular SLAM
+
+# 2011 DTAM
+
+算法简介：直接法的鼻祖， 学习参考意义较大
+
+介绍：https://www.robots.ox.ac.uk/~vgg/rg/papers/newcombe_davison__2011__dtam.pdf
+
+其他：
+
+MonoSLAM
+
+PTAM
+
+FAB-MAP
