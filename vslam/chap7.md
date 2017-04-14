@@ -1,8 +1,12 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 # VO
 ## Feature points method
 Feature points method is popular because it is quite steady and insensible to light and dynamic.
 
-Features include corners, edges and blocks. The easiest feature to detect is corner, then edge, then block. 
+Features include corners, edges and blocks. The easiest feature to detect is corner, then edge, then block.
 
 Corners also have problems. Maybe some feature are corners but when we are close to it, it's no more a corner. Or when we rotate the camera, we could not recognize the corner. For this, computer researchers build several corners such as SIFT, SURF and ORB. These good corners have these features:
 
@@ -32,7 +36,7 @@ FAST is a key-point which detects the place where the pixel gray scale changes s
 3. Treat p as the center of the cirble, pick the 16 surrounding pixels by the radius of 3.
 4. Suppose the circle has continuous points whose brightness greater than $I_p+T$ or less than $I_p-T$, then we could treat the pixel p as a key-point(N is usually 12)
 5. Cycle the above steps for every pixel.
- 
+
 To be faster: detect the 1,5,9,13 brightness. Besides, we use the Non-maximal suppression to keep the maximal responsing conner to avoid the conner focus problem.
 
 Problems in FAST:
@@ -57,4 +61,15 @@ Feature matching is a signicant step in the SLAM, it deals withe the data associ
 
 How to match these points? The easiest method is the Brute-Force Marcher. For every key-point $x_t^m$, compare its distance to every other key-points'. The distance is Hamming distance.
 
-But as the amount of the key-points get larger, the brute-force matcher turns to be very slow. We use FLANN to compute the situation where there are a large of amount of key-points. 
+But as the amount of the key-points get larger, the brute-force matcher turns to be very slow. We use FLANN to compute the situation where there are a large of amount of key-points.
+
+Then we hope to estimate the camera's motion according to the paired points. This varies according to the cameras' types:
+
+1. When the camera is monocular, we only know the 2D pixel coordinates. We estimate the cameras' motion according to two pairs of 2D points by using Epipolar Geometry.
+2. When the camera is stereo, we know the distances. We estimate the cameras' motion according to two pairs of 3D points by using ICP.
+3. If we have the 3D points and their projection position in the camera, we solve it by using PnP.
+
+## 2D-2D: Epipole Geometry
+### Epipole confinement
+<img src="https://github.com/lty2226262/blog/blob/master/MarkdownPhotos/vslam_7_1.png?raw=true">
+We hope to
