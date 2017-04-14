@@ -93,7 +93,44 @@ The SLAM problem has a special structure:
 
 ### Newton's method
 https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization
+
+1. Set an initial value <img src="http://latex.codecogs.com/gif.latex?x_0">;
+2. For the kth iteration, find a increment <img src="http://latex.codecogs.com/gif.latex?\Delta%20x_k"> to minimize <img src="http://latex.codecogs.com/gif.latex?%5Cleft%20%5C%7C%20f%28x_k&plus;%5CDelta%20x_k%29%20%5Cright%20%5C%7C%5E2_2">
+3. If <img src="http://latex.codecogs.com/gif.latex?\Delta%20x_k"> is small enough, stop iteration.
+4. Otherwise, let <img src="http://latex.codecogs.com/gif.latex?x_%7Bk&plus;1%7D%3Dx_k&plus;%5CDelta%20x_k">, return to 2.
+
+
 ### Gauss-Newton method
 https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm
+
+1. Set an initial value <img src="http://latex.codecogs.com/gif.latex?x_0">;
+2. For the kth iteration, compute the current Jacobian matrix <img src="http://latex.codecogs.com/gif.latex?J(x_k)"> and error <img src="http://latex.codecogs.com/gif.latex?f(x_k)">
+3. Solve the increment equation: <img src="http://latex.codecogs.com/gif.latex?H\Delta%20x_k=g">
+4. If <img src="http://latex.codecogs.com/gif.latex?\Delta%20x_k"> is small enough, stop. Otherwise, return to 2.
+
 ### Levernberg-Marquardt method
 https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm
+
+1. Set an initial value <img src="http://latex.codecogs.com/gif.latex?x_0">, and the initial optimum radius <img src="http://latex.codecogs.com/gif.latex?\mu">
+2. For the kth iteration, solve:
+
+  <img src="http://latex.codecogs.com/gif.latex?min_%7B%5CDelta%20x_k%7D%5Cfrac%7B1%7D%7B2%7D%5Cleft%20%5C%7C%20f%28x_k%29&plus;J%28x_k%29%5CDelta%20x_k%20%5Cright%20%5C%7C%5E2%2Cs.t.%5Cleft%20%5C%7C%20D%5CDelta%20x_k%20%5Cright%20%5C%7C%5E2%5Cleq%20%5Cmu">, the <img src="http://latex.codecogs.com/gif.latex?%5Cmu"> is the reliable area radius. D is an identity matrix.
+3. Compute the <img src="http://latex.codecogs.com/gif.latex?%5Crho">.
+4. If <img src="http://latex.codecogs.com/gif.latex?%5Crho>\frac{3}{4}">, then <img src="http://latex.codecogs.com/gif.latex?\mu=2\mu">;
+5. If <img src="http://latex.codecogs.com/gif.latex?%5Crho<\frac{1}{4}">, then <img src="http://latex.codecogs.com/gif.latex?\mu=0.5\mu">
+6. If <img src="http://latex.codecogs.com/gif.latex?%5Crho"> is larger than a threshold, we could consider it as available. Let <img src="http://latex.codecogs.com/gif.latex?x_{k+1}=x_k+\Delta%20x_k">
+7. To judge if the result is convergent, if not return to 2, else stop.
+
+## Graphic optimization
+
+we express the optimization problem with Graph. A graph consists of several vertex and several edges. Futhermore, we use vertex to express the optimization variables and the edges as the error component. Hence, we could establish a corresponding graph as shown below.
+
+When we use g2o, we have 4 things to do:
+
+1. Define the vertexes and the edges.
+
+2. Construct the graph.
+
+3. Choose the optimization algorithm
+
+4. g20 optimization.
