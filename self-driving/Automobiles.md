@@ -494,6 +494,8 @@ smooth:
 
 <img src="http://latex.codecogs.com/gif.latex?y_i=y_i+\alpha%20(x_i%20-%20y_i)%20+%20\beta%20(y_{i+1}%20+%20y_{i-1}%20-2%20\times%20y_i)" />
 
+where x_i is the original path, y_i is the path that should be optimize.
+
 ### P control
 
 p: steering = -tau * crosstrack_error
