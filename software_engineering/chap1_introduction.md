@@ -136,3 +136,5 @@ Silver-bullet syndrome: too much reliance on the advertised benefits of some pre
 Switching tools: switching or adding tools in the middle of a object.
 
 No version control: lack of an automated version control system.
+
+#

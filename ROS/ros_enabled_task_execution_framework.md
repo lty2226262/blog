@@ -55,3 +55,23 @@ configure the parameters with rqt_reconfigure
     rosrun rqt_reconfigure rqt_reconfigure
 
 Then click on battery_simulator node to see the options.
+
+## A Brief Review of Ros Actions
+
+Ros action expects a goal to be submitted by an action client. The action server will then typically provide feedback as progress is made toward the goal and a result will then typically provide feedback as progress is made toward the goal and a result when the goal is either succeeded, aborted, or preempted.
+
+## A patrol Bot Example
+
+patrol the perimeter of a square by navigating from corner to corner in sequence. If the battery level falls below a certain threshold, the robot should stop its patrol and navigate to the docking station. After recharging, the robot should continue the patrol where it left off.
+
+* initialization:
+  * set waypoint coordinates
+  * set docking station coordinates
+  * set number of patrpls to perform
+* tasks(ordered by priority):
+  * CHECK_BATTERY
+  * RECHARGE
+  * PATROL
+* sensors and actuators:
+  * battery sensor; laser scanner,RGB-D camera, etc.
+  * drive motors
