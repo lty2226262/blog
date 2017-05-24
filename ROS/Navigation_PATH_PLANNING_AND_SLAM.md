@@ -115,3 +115,94 @@ If you're not already running RViz, bring it up now with the included navigation
 Since our robot is starting off at coordinates (0, 0, 0) in both the /map frame and the /base_link frame
 
     rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{ header: { frame_id: "map" }, pose: { position: { x: 1.0, y: 0, z: 0 }, orientation: { x: 0, y: 0, z: 0, w: 1 } } }'
+
+### Navigating a Square using move_base
+
+To make sure we are starting with a clean slate, terminate any launch files used in the previous section by typing Ctrl-C in the appropriate terminal windows. Then fire up the fake TurtleBot and move_base node as before:
+
+    roslaunch rbx1_bringup fake_turtlebot.launch
+And in another terminal:
+
+    roslaunch rbx1_nav fake_move_base_blank_map.launch
+Then make sure you have RViz up with the nav.rivz configuration file:
+
+    rosrun rviz rviz -d `rospack find rbx1_nav`/nav.rviz
+Finally, run the move_base_square.py script:
+
+    rosrun rbx1_nav move_base_square.py
+
+## Map Building using the gmapping package
+
+The usual strategy is first to teleoperate the robot around an area while recording the laser and odometry data to generate a map.
+
+advantage of recording: you can generate any number of test maps later using the same data but with different parameters.
+
+
+### collecting and recording scan data
+
+    rosbag recourd -O my_scan_data /scan /tf
+
+When you are finished collecting and recourding data, type Ctrl-C in the rosbag terminal window.
+
+### Creating the map
+
+When you are finished driving the robot, type Ctrl-C in the rosbag terminal window to stop the recording process. Then save the current map as follows:
+
+    roscd rbx1_nav/maps
+    rosrun map_server map_saver -f my_map
+
+### Creating a Map from Bag Data
+
+    rosparam set use_sim_time true
+Then clear the move_base parameters and re-launch the gmapping_demo.launch file again:
+
+    $ rosparam delete /move_base
+    $ roslaunch rbx1_nav gmapping_demo.launch
+You can monitor the process in RViz using the gmapping configuration file:
+
+    rosrun rviz rviz -d `rospack find rbx1_nav`/gmapping.rviz
+Finally, play back your recorded data:
+
+    $ roscd rbx1_nav/bag_files
+    $ rosbag play my_scan_data.bag
+When the rosbag file has played all the way through, you save the generated map the same way we did with the live data:
+
+    $ roscd rbx1_nav/maps
+    $ rosrun map_server map_saver -f my_map
+* my_map.pgm which is the map image
+* my_map.yaml that describes the dimensions of the map.
+
+**NOTE**: Don't forget to reset the use_sim_time parameter after you are finished map building. Use the command:
+
+    $ rosparam set use_sim_time false
+## Navigation and Localization using a Map and amcl
+
+ROS uses the amcl package to localize the robot within an existing map using the current scan data coming from the robot's laser or depth camera.
+
+### Testing amcl with Fake Localization
+
+To test it all out in the ArbotiX simulator, run the following commands—skip any commands that you already have running in various terminals:
+
+    roslaunch rbx1_bringup fake_turtlebot.launch
+Next run the fake_amcl.launch file with the included test map or point it to your own map on the command line:
+
+    roslaunch rbx1_nav fake_amcl.launch map:=test_map.yaml
+Finally, bring up RViz with the amcl configuration file:
+    $ rosrun rviz rviz -d `rospack find rbx1_nav`/amcl.rviz
+### Using amcl with a Real Robot
+
+Assuming you have already created a map called my_map.yaml in the directory rbx1_nav/maps, follow these steps to start localizing your robot.
+
+Begin by launching your robot's startup files. For an original TurtleBot, you would run the following on the robot's laptop computer:
+
+    $ roslaunch rbx1_bringup turtlebot_minimal_create.launch
+Next fire up the fake laser. (If you have a real laser scanner, run its launch file instead.)
+
+    roslaunch rbx1_bringup turtlebot_fake_laser_freenect.launch
+Now launch the tb_demo_amcl.launch file with your map as an argument:
+
+    roslaunch rbx1_nav tb_demo_amcl.launch map:=my_map.yaml
+Finally, bring up RViz with the included navigation test configuration file:
+
+    rosrun rviz rviz -d `rospack find rbx1_nav`/nav_test.rviz
+When amcl first starts up, you have to give it the initial pose (position and orientation) of the robot as this is something amcl cannot figure out on its own. To set the initial pose, first click on the 2D Pose Estimate button in RViz. Then click on the point in the map where you know your robot is located. While holding down the mouse button, a large green arrow should appear. Move the mouse to orient the arrow to match the orientation of your robot, then release the mouse.
