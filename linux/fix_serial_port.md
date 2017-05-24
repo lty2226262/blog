@@ -44,3 +44,7 @@ By now it should be obvious what these lines mean. Perhaps just a note for the l
     ~# ls -l /dev/ttyUSB1
     crw-rw---- 1 root uucp 188, 0 Nov 25 22:12 /dev/ttyUSB1
 That looks good. The last step is to configure minicom, avrdude and all the other relevant tools to use these new names and forget about chasing the right /dev/ttyUSB* every second day.
+
+    service udev reload
+    sleep 2
+    service udev restart
