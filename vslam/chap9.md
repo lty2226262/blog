@@ -45,4 +45,21 @@ it takes charge of the load of a file, and provide the parameter if necessary. S
 
 ### VO between 2 images
 
-Pairwise Structureless VO.
+Pairwise Structureless VO. Assume that the Reference frame to the world coordinate is <img src="http://chart.googleapis.com/chart?cht=tx&chl=T_{rw}">, the Current Frame to the world coordinate is <img src="http://chart.googleapis.com/chart?cht=tx&chl=T_{cw}">, The estimated frame form the left multiply relationship:
+
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=T_{cr}, s.t. T_{cw}=T_{cr}T_{rw}">
+
+We only care about the motion, but do not the structure.
+
+Its flow shows below:
+
+1. Extract the key-points and descriptors for the current frame.
+2. This frame is the reference frame without initialization, return the 3D pose of the key-points, and return 1.
+3. Estimate the motion between reference frame and current frame.
+4. Judge if the above is successful.
+5. If success, add the current frame as a new reference frame, return 1.
+6. If fail, mark the continuous lost frame, and set the VO state as LOST, algorithm ends. If not exceed, return 1.
+
+#### VO class
+
+This class implement the above algorithm.
