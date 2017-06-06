@@ -32,4 +32,4 @@ Let's look at the input parameters for the OpenCV function HoughLinesP that we w
 
 First off, rho and theta are the distance and angular resolution of our grid in Hough space. The units are pixel and radian. 
 
-
+The threshold parameter specifies the minimum number of votes (intersections in a given grid cell) a candidate line needs to have to make it into the output. 
