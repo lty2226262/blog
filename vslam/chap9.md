@@ -63,3 +63,20 @@ Its flow shows below:
 #### VO class
 
 This class implement the above algorithm.
+
+Some explanations:
+
+1. VO have different states, it is a finite state machine. We consider the easiest three states: initialization, normal, lost.
+2. We add some middle variables into the class to avoid value passing.
+3. Feature extraction and parameter matching, load the parameters from the parameter files.
+4. addFrame is for external call.
+
+#### Discussion
+
+This simple approach doesn't make sense. Reasons maybe:
+
+1. We using RANSAC to solve the PnP solution. Due to RANSAC only uses a few points, so influenced strongly by noises. So we need to estimate the RANSAC solution as the initialized value. Then solve an optimized solution.
+
+2. Because the VO is structureless, so the pose of 3D points are treated as the true value. But in actually, RGB-D depth image has some errors. So we need to optimize the key-points together with the VO.
+
+3. If we only refer the reference frame and the current frame, the pose estimation depends the reference frame too strongly. When the estimation of the reference frame is not accurate, it could cause an obvious drift. One the other hand, we do not make full  use of information. The more useful method is to compare the current frame and the map, but not compare the current frame and the reference frame. Therefore, we need to care about how to match the current frame and the map, and how to optimize the map points.
