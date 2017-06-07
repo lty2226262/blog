@@ -42,7 +42,7 @@ TODO: vSlam_project
 
 <h3 id="3.1"> Notes </h3>
 
-1. [Outline of CS61B] (https://github.com/lty2226262/blog/blob/master/java/0.cs%2061b%20course%20overview.md)
+1. [Outline of CS61B](https://github.com/lty2226262/blog/blob/master/java/0.cs%2061b%20course%20overview.md)
 2. [Using Object](https://github.com/lty2226262/blog/blob/master/java/1.cs%2061b%20course%20Using%20Objects.md)
 3. [Defining classes](https://github.com/lty2226262/blog/blob/master/java/2.CS%2061B%20Defining%20Classes.md)
 4. [Types and conditions](https://github.com/lty2226262/blog/blob/master/java/3.CS%2061B%20Types%20and%20Conditionals.md)
