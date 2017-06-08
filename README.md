@@ -126,8 +126,8 @@ TODO: homeworks
 22. [search_a_local_document](https://github.com/lty2226262/blog/blob/master/linux/search_a_local_document.md)
 23. [search_a_package_from_apt](https://github.com/lty2226262/blog/blob/master/linux/search_a_package_from_apt.md)
 24. [start_a_script_at_startup](https://github.com/lty2226262/blog/blob/master/linux/start_a_script_at_startup.md)
-25. [using_eigen](https://github.com/lty2226262/blog/blob/master/md/MarkdownSample.md)
-26. [github_clone_speed_improvement](https://github.com/lty2226262/blog/blob/master/md/github_clone_speed_improvement.md)
+25. [using_eigen](https://github.com/lty2226262/blog/blob/master/linux/using_eigen.md)
+26. [github_clone_speed_improvement](https://github.com/lty2226262/blog/blob/master/linux/github_clone_speed_improvement.md)
 
 <h2 id="6"> ROS </h2>
 
