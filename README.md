@@ -33,6 +33,13 @@ I'm Joey, interested in Robotics and AI techniques. Here is my memos and notes.
 <h3 id="2.1"> Notes </h3>
 
 1. [Some tutorials for Eigen](https://github.com/lty2226262/blog/blob/master/cpp/eigen_tutorials.md)
+5. [Cmake_Select_opencv_with_required_edition](https://github.com/lty2226262/blog/blob/master/linux/Select_opencv_with_required_edition.md)
+7. [Cmake_build_a_cpp_lib](https://github.com/lty2226262/blog/blob/master/linux/build_a_cpp_lib.md)
+8. [Cmake_build_a_cpp_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_cpp_project.md)
+9. [Cmake_build_a_opencv_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_opencv_project.md)
+10. [Cmake_build_a_pcl_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_pcl_project.md)
+11. [Cmake_build_a_project_using_find_package](https://github.com/lty2226262/blog/blob/master/linux/build_a_project_using_find_package.md)
+25. [Cmake_using_eigen](https://github.com/lty2226262/blog/blob/master/linux/using_eigen.md)
 
 <h3 id="2.2"> Samples </h3>
 
@@ -105,14 +112,8 @@ TODO: homeworks
 1. [Ceres_introduction_and_install](https://github.com/lty2226262/blog/blob/master/linux/Ceres_introduction_and_install.md)
 2. [PCL_1.7_install](https://github.com/lty2226262/blog/blob/master/linux/PCL_1.7_install.md)
 3. [ReSpeaker_Linux_Install](https://github.com/lty2226262/blog/blob/master/linux/ReSpeaker_Linux_Install.md)
-4. [Respeaker_python_api](https://github.com/lty2226262/blog/blob/master/linux/Respeaker_python_api.md)
-5. [Select_opencv_with_required_edition](https://github.com/lty2226262/blog/blob/master/linux/Select_opencv_with_required_edition.md)
+4. [Respeaker_python_sdk_install](https://github.com/lty2226262/blog/blob/master/linux/Respeaker_python_api.md)
 6. [auto_login](https://github.com/lty2226262/blog/blob/master/linux/auto_login.md)
-7. [build_a_cpp_lib](https://github.com/lty2226262/blog/blob/master/linux/build_a_cpp_lib.md)
-8. [build_a_cpp_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_cpp_project.md)
-9. [build_a_opencv_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_opencv_project.md)
-10. [build_a_pcl_project](https://github.com/lty2226262/blog/blob/master/linux/build_a_pcl_project.md)
-11. [build_a_project_using_find_package](https://github.com/lty2226262/blog/blob/master/linux/build_a_project_using_find_package.md)
 12. [build_with_ninja](https://github.com/lty2226262/blog/blob/master/linux/build_with_ninja.md)
 13. [disk_error](https://github.com/lty2226262/blog/blob/master/linux/disk_error.md)
 14. [fix_serial_port](https://github.com/lty2226262/blog/blob/master/linux/fix_serial_port.md)
@@ -126,7 +127,7 @@ TODO: homeworks
 22. [search_a_local_document](https://github.com/lty2226262/blog/blob/master/linux/search_a_local_document.md)
 23. [search_a_package_from_apt](https://github.com/lty2226262/blog/blob/master/linux/search_a_package_from_apt.md)
 24. [start_a_script_at_startup](https://github.com/lty2226262/blog/blob/master/linux/start_a_script_at_startup.md)
-25. [using_eigen](https://github.com/lty2226262/blog/blob/master/md/MarkdownSample.md)
+25. [Kdevelop_let_kdevelop_support_ros_project](https://github.com/lty2226262/blog/blob/master/linux/let_kdevelop_support_ros_project.md)
 
 <h2 id="6"> ROS </h2>
 
@@ -140,6 +141,7 @@ TODO: homeworks
 8. [roslaunch](https://github.com/lty2226262/blog/blob/master/ROS/roslaunch.md)
 9. [show_msg_data_structure](https://github.com/lty2226262/blog/blob/master/ROS/show_msg_data_structure.md)
 10. [teleop_keyboard](https://github.com/lty2226262/blog/blob/master/ROS/teleop_keyboard.md)
+11. [using_class_methods_as_callbacks](https://github.com/lty2226262/blog/blob/master/ROS/using_class_methods_as_callbacks.md)
 
 <h2 id="7"> Self_driving </h2>
 
@@ -176,6 +178,7 @@ TODO: nano_degree
 7. [VO](https://github.com/lty2226262/blog/blob/master/vslam/chap7.md)
 8. [VO2](https://github.com/lty2226262/blog/blob/master/vslam/chap8.md)
 9. [design_the_frontend](https://github.com/lty2226262/blog/blob/master/vslam/chap9.md)
+9. [design_the_backend](https://github.com/lty2226262/blog/blob/master/vslam/chap10.md)
 10. [Quaternion and spatial rotation](https://github.com/lty2226262/blog/blob/master/vslam/quaternions.md)
 11. [slam_conclusion](https://github.com/lty2226262/blog/blob/master/vslam/rgbd_slam_conclusion.md)
 
