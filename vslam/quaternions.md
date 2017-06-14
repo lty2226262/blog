@@ -10,7 +10,7 @@ This is called axis-angle rotation:
 
 The corresponding quaternion is:
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=q=cos(\theta/2)%2bsin(\theta/2)u_xi+sin(\theta/2)u_yj%2bsin(\theta/2)u_zk" style="border:none;">
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=q=cos(\theta/2)%2bsin(\theta/2)u_xi%2bsin(\theta/2)u_yj%2bsin(\theta/2)u_zk" style="border:none;">
 
 ## Quaternions
 
