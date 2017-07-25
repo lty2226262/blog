@@ -25,6 +25,4 @@ It is extremely hard task!
 * Changing requirements
 * Multiple stakeholders with conflicting requirements
 
- Completeness and pertinence
-
- 
+Completeness and pertinence
