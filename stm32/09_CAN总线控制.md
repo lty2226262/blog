@@ -195,15 +195,59 @@ bxCAN有三个主要的工作模式：初始化，正常和睡眠模式
 
 还包括：测试模式、静默模式、环回模式、环回静默模式。
 
-SLAK和INAK
+## 环回模式
+
+在环回模式下，bxCAN把发送的报文当做接收的报文并保存（如果可以通过接收过滤）在接收邮箱里。也就是环回模式是一个自发自收的模式。环回模式用于自测试。为了避免外部的影响，在环回模式下CAN内核忽略确认错误（在数据/远程帧的确认位时刻，不检测是否有显性位。)在环回模式下,bxCAN在内部把Tx输出回馈到Rx输入上,而完全忽略CANRX引脚的实际状态。发送的报文可以在CANTx引脚上检测到。
 
 
 
+## CAN发送流程
 
+CAN发送流程为：程序选择一个空置的邮箱(TME=1)->设置标识符(ID),数据长度和发送数据->设置CAN_TIxR的TXRQ位为1，请求发送->邮箱挂号(等待成为最高优先级)->预订发送（等待总线空闲）->发送->邮箱空置
 
+## CAN接收流程
 
+CAN的接收流程为:FIFO 空->收到有效报文->挂号_1(存入FIFO的一个邮箱,这个由硬件 控制,我们不需要理会)->收到有效报文->挂号_2->收到有效报文->挂号_3->收到有效报文-> 溢出。
 
+## 实验介绍
 
+本章,我们通过KEY_UP按键选择CAN的工作模式(正常模式/环回模式),然后通过KEY0控制数据发送,并通过查询的办法,将接收到的数据显示在LCD模块上。如果是环回模式,我们用一个开发板即可测试。如果是正常模式,我们就需要2个阿波罗开发板,并且将他们的CAN接口对接起来,然后一个开发板发送数据,另外一个开发板将接收到的数据显示在LCD模块上。
+
+（1）配置相关引脚的复用功能(AF9),使能 CAN 时钟。
+
+我们要用CAN,第一步就要使能CAN的时钟,CAN的时钟通过APB1ENR的第25位来设置。其次要设置CAN的相关引脚为复用输出,这里我们需要设置PA11(CAN1_RX)和PA12
+(CAN1_TX)为复用功能(AF9),并使能PA口的时钟。具体配置过程如下:
+
+```
+GPIO_InitTypeDef GPIO_Initure;
+__HAL_RCC_CAN1_CLK_ENABLE(); //使能CAN1时钟
+__HAL_RCC_GPIOA_CLK_ENABLE(); //开启GPIOA时钟
+
+GPIO_Initure.Pin=GPIO_PIN_11|GPIO_PIN_12; //PA11,12
+GPIO_Initure.Mode=GPIO_MODE_AF_PP; //推挽复用
+GPIO_Initure.Pull=GPIO_PULLUP; //上拉
+GPIO_Initure.Speed=GPIO_SPEED_FAST; //快速
+GPIO_Initure.Alternate=GPIO_AF9_CAN1; //复用为 CAN1
+HAL_GPIO_Init(GPIOA,&GPIO_Initure); //初始化
+
+```
+
+这里需要提醒一下,CAN 发送接受引脚是哪些口,可以在中文参考手册引脚表里面查找。
+
+ (2) 设置 CAN 工作模式及波特率等。
+
+这一步通过先设置CAN_MCR寄存器的INRQ位,让CAN进入初始化模式,然后设置
+CAN_MCR的其他相关控制位。再通过CAN_BTR设置波特率和工作模式(正常模式/环回模式)等信息。最后设置INRQ为0,退出初始化模式。
+
+这一步通过先设置CAN_MCR寄存器的INRQ位,让CAN进入初始化模式,然后设置CAN_MCR的其他相关控制位。再通过CAN_BTR设置波特率和工作模式(正常模式/环回模式)等信息。最后设置INRQ为0,退出初始化模式。
+
+在库函数中,提供了函数HAL_CAN_Init用来初始化CAN的工作模式以及波特率,HAL_CAN_Init函数体中,在初始化之前,会设置CAN_MCR寄存器的INRQ为1让其进入初始化模式,然后初始化CAN_MCR寄存器和CRN_BTR寄存器之后,会设置CAN_MCR寄存器的INRQ为0让其退出初始化模式。所以我们在调用这个函数的前后不需要再进行初始化模式设置。下面我们来看看HAL_CAN_Init函数的声明:
+
+```
+HAL_StatusTypeDef HAL_CAN_Init(CAN_HandleTypeDef* hcan);
+```
+
+该函数入口参数只有 hcan 一个,为 CAN_HandleTypeDef 结构体指针类型,接下来我们看 看结构体CAN_HandleTypeDef的定义。
 
 
 
