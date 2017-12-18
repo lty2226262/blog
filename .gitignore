@@ -119,3 +119,7 @@ java/practices/.recommenders/index/http___download_eclipse_org_recommenders_mode
 
 java/practices/BOP/.project
 self-driving/self-driving-nano-degree/Lesson2_Finding_Lane_Line_on_the_road/.idea
+
+.DS_Store
+
+.kdev4/

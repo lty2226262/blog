@@ -23,7 +23,34 @@ $$
 $$
 So, $f(x) = 10 -x$, $\rho(x) = x$.
 
+
+
+CMakeLists is:
+
+```cmake
+cmake_minimum_required(VERSION 2.6)
+project(ceres_study)
+
+find_package(Ceres REQUIRED)
+include_directories(${CERES_INCLUDE_DIRS})
+
+add_executable(ceres_study main.cpp)
+target_link_libraries(ceres_study ${CERES_LIBRARIES})
+```
+
+
+
+
+
 ```cpp
+#include "ceres/ceres.h"
+
+using ceres::AutoDiffCostFunction;
+using ceres::CostFunction;
+using ceres::Problem;
+using ceres::Solver;
+using ceres::Solve;
+
 struct CostFunctor {
    template <typename T>
    bool operator()(const T* const x, T* residual) const {
