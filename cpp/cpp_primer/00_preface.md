@@ -39,20 +39,20 @@ tells the compiler that we want to use the iostream library.
 
 ## Primitive Built-in Types
 
-| Type | Meaning | Minimum Size|
-|------|---------|-------------|
-| bool | boolean | NA|
-| char | character| 8 bits|
-| wchar_t | wide character | 16 bits|
-| char16_t | Unicode character | 16 bits|
-| char32_t | Unitcode character | 32 bits|
-| short | short integer | 16 bits|
-| int | integer | 16 bits |
-| long | long integer | 32 bits|
-| long long | long integer | 64 bits|
-| float | single-precision floating-point | 6 | 6 significant digits|
-| double | double-precision floating-point | 10 significant digits|
-|long double | extended-precision floating-point| 10 significant digits|
+| Type        | Meaning                           | Minimum Size          |
+| ----------- | --------------------------------- | --------------------- |
+| bool        | boolean                           | NA                    |
+| char        | character                         | 8 bits                |
+| wchar_t     | wide character                    | 16 bits               |
+| char16_t    | Unicode character                 | 16 bits               |
+| char32_t    | Unitcode character                | 32 bits               |
+| short       | short integer                     | 16 bits               |
+| int         | integer                           | 16 bits               |
+| long        | long integer                      | 32 bits               |
+| long long   | long integer                      | 64 bits               |
+| float       | single-precision floating-point   | 6                     |
+| double      | double-precision floating-point   | 10 significant digits |
+| long double | extended-precision floating-point | 10 significant digits |
 
 ### Machine-Level Representation of the Built-in Types
 
@@ -79,22 +79,22 @@ There are three distinct basic character types: `char`, `signed char` and `unsig
 
 ### Literals
 
-| Prefix | Meaning | Type|
-|---|---|---|
-|0 | octal | - |
-|0x | hexadecimal | - |
-| u | Unicode 16 character | char16_t |
-| U | Unicode 32 character | char32_t |
-| L | wide character | wchar_t |
-|u8 | utf-8 (string literals only) | char | 
+| Prefix | Meaning                      | Type     |
+| ------ | ---------------------------- | -------- |
+| 0      | octal                        | -        |
+| 0x     | hexadecimal                  | -        |
+| u      | Unicode 16 character         | char16_t |
+| U      | Unicode 32 character         | char32_t |
+| L      | wide character               | wchar_t  |
+| u8     | utf-8 (string literals only) | char     |
 
-| Suffix | Minimum Type |
-|---|---|
-|u or U | unsigned |
-|l or L | long|
-|ll or LL | long long |
-| f or F | float |
-| l or L | long double |
+| Suffix   | Minimum Type |
+| -------- | ------------ |
+| u or U   | unsigned     |
+| l or L   | long         |
+| ll or LL | long long    |
+| f or F   | float        |
+| l or L   | long double  |
 
 exponent specified using scientific notation
 
@@ -113,7 +113,7 @@ A character enclosed within single quotes is a literal of type `char`. Zero or m
 The compiler appends a null character ('\0') to every string literal.
 
 So
- 
+
 ```
 'A' represents the single character A,
 the string literal "A" represents an array of two characters, the letter A and the null character. 
@@ -150,8 +150,8 @@ One important property: the compiler will not let us list initialize variables o
 
 ```
 Long double ld=3.1415926536;
-Int a{ld}, b = {ld}; //error
-Int c{ld}, d = ld;//ok, but value will be truncated
+Int a{ld}, b = {ld}; //error: narrowing conversion required
+Int c(ld), d = ld;//ok, but value will be truncated
 ```
 
 With one exception, variables of built-in type defined inside a function are uninitialized. The value of an uninitialized variable of built-in type is undefined.

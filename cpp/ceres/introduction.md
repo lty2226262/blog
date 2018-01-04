@@ -95,3 +95,51 @@ int main(int argc, char** argv) {
 }
 ```
 
+## Derivatives
+
+微分对收敛结果有很大影响，也可以使用数值微分
+
+### Numeric Dericatives
+
+```Cpp
+struct NumericDiffCostFunctor {
+  bool operator()(const double* const x, double* residual) const {
+    residual[0] = 10.0 - x[0];
+    return true;
+  }
+};
+```
+
+再把下面的加到`problem`里：
+
+```cpp
+CostFunction* cost_function =
+    new AutoDiffCostFunction<CostFunctor, 1, 1>(new CostFunctor);
+problem.AddResidualBlock(cost_function, NULL, &x);
+```
+
+与numeric dericatives相比更推荐用自动求导。
+
+### Analytic Derivatives
+
+有的时候用自动求导不可能。因为太没有效率了。所以有时我们会自己给出残差和雅可比计算的参数。
+
+```cpp
+class QuadraticCostFunction : public ceres::SizedCostFunction<1, 1> {
+ public:
+  virtual ~QuadraticCostFunction() {}
+  virtual bool Evaluate(double const* const* parameters,
+                        double* residuals,
+                        double** jacobians) const {
+    const double x = parameters[0][0];
+    residuals[0] = 10 - x;
+
+    // Compute the Jacobian if asked for.
+    if (jacobians != NULL && jacobians[0] != NULL) {
+      jacobians[0][0] = -1;
+    }
+    return true;
+  }
+};
+```
+
