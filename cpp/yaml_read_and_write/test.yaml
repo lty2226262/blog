@@ -1,0 +1,24 @@
+%YAML:1.0
+---
+int_data: 2
+char_data: -1
+string_data: "hello mother fucker!"
+array_data:
+   - 1
+   - 2
+   - 3
+   - 4
+   - 5
+   - 6
+   - 7
+   - 8
+   - 9
+   - 10
+struct_data:
+   x: 3
+   y: 4
+   s: hi fucker
+map_data:
+   curry: 98
+   james: 99
+   kobe: 100

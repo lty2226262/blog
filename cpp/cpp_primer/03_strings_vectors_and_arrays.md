@@ -1,3 +1,5 @@
+[TOC]
+
 # Strings, Vectors, and arrays
 
 ## Headers should not include using declarations
@@ -71,19 +73,21 @@ int main()
 
 Defined in `cctype` header. `c` is the character.
 
-```
+```cpp
+
 isalnum(c)			//true if c is a letter or a digit
 isalpha(c)			//true if c is a letter
 iscntrl(c)			//true if c is a control character
 isdigit(c)			//true if c is a digit
 isgraph(c)			//true if c is not a space but is printable
+```
+
 
 ### C++ 11 new feature: `range-based for`
 
 If we want to do something to every character in a `string`, the best approach is to use a `range for`. The syntactic form is
 
 ```
-
 	for (declaration: expression)
 		statement
 ```
@@ -135,6 +139,8 @@ cout << punct_cnt
 	for (auto &c: s)	// for every char in s (note: c is a reference)
 		c = toupper(c);	// c is a reference, so the assignment changes the char in s 
 	cout << s << endl;
+```
+
 ## Library `vector` Type
 
 `vector` is a `container`. A `vector` is a class template. C++ has both class and function templates. 
@@ -267,12 +273,265 @@ auto b = v.begin(), e = v.end(); //b和e有着相同的类型
 
 例子：
 
-```
+```cpp
 string s("some string");
 if(s.beigin() != s.end()) //make sure s is not empty
 {
   auto it = s.begin();
   *it = toupper(*it); //只把第一个字符变成大写的了
 }
+```
+
+
+
+#### 小贴士
+
+在`for`循环中使用`!=`和迭代器，而不是使用`<`。因为迭代器不一定会有`<`。
+
+#### 迭代器的类型
+
+`string`类的`size()`的返回值数据类型为`string::size_type`。但是我们经常都用`auto`。相似的，我们也不知道迭代器的准确类型。实际上，有以下几种：
+
+```cpp
+vector<int>::iterator it; //it 又可读又可写，为vector<int>元素
+string::iterator it2;    //it2 可以读写，是string
+vector<int>::const_iterator it3; //it3只读
+string::const_iterator it4; //it4 只读
+```
+
+`const_iterator`和`const 指针`一样。只能读，不能写。如果一个vector是const的，iterator只能用`const_iterator`。否则两个都能用。
+
+#### `begin`和`end`操作
+
+这个类型是取决于对象是不是`const`的。如果对象是`const`类型为`const_iterator`。否则返回为`iterator`。
+
+```Cpp
+vector<int> v;
+const vector<int> cv;
+auto it1 = v.begin(); //it1是vector<int>::iterator
+auto it2 = cv.begin(); //it2是vector<int>::const_iterator
+```
+
+所以说我们经常会不想用默认构造类型而用`const`的。另外一种是`cbegin`和`cend`。这两个是只读。
+
+```cpp
+auto it3 = v.cbegin(); //it3是vector<int>::const_iterator
+```
+
+#### 结合dereference和member access的情况
+
+如果两个都有的话，比如`it`是一个`vector<string>`的迭代器，则加括号是必要的。没有括号就错了。为了简化，可以用`->`
+
+```cpp
+(*it).empty();
+*it.empty(); //错的
+it->empty(); //对的
+```
+
+#### 可能使迭代器失效的一些情况
+
+有一些操作，比如说像`push_back`可能会改变`vector`的大小，可能导致迭代器失效。
+
+```cpp
+值得注意的是，在循环中不能在容器中添加或删除元素（改变size的操作），否则会造成迭代器混乱。
+```
+
+### 3.4.2 迭代器的算术
+
+| `iter+n`           | 后向的第n个元素，必须保证在容器里 |
+| ------------------ | ----------------- |
+| `iter-n`           | 前向                |
+| `iter+=n, iter-=n` | 类似                |
+| `iter1-iter2`      | 得到元素个数            |
+| `>,>=,<,<=`        | 关系                |
+
+#### 算术的应用
+
+`auto mid = vi.begin() + vi.size()/2`
+
+如果vi有20个元素，指向第十个。可以用于二分搜索。
+
+```Cpp
+//text must be sorted
+//beg and end will denote the range we're searching
+
+auto beg = text.begin(), end = text.end();
+auto mid = text.begin() + (end - beg)/2; // original midpoint // while there are still elements to look at and we haven't yet found sought 
+while (mid != end && *mid != sought) {
+	if (sought < *mid)// is the element we want in the first half?
+      end = mid;// if so, adjust the range to ignore the secondhalf.
+	else// the element we want is in the second half
+      beg = mid + 1;// start looking with the element just after mid
+  	mid = beg + (end - beg)/2; // new midpoint
+}
+```
+
+## 3.5 Array
+
+定长，不能加元素。初始化用`a[d]`，`a`是名字`d`是元素个数。必须是const。
+
+```Cpp
+unsigned cnt = 42; // not a constant expression 
+constexpr unsigned sz = 42; // constant expression
+// constexpr see § 2.4.4 (p. 66)
+
+int arr[10];// array of ten ints
+int *parr[sz];// array of 42 pointers to int
+string bad[cnt];// error: cnt is not a constant expression
+string strs[get_size()]; // ok if get_size is constexpr, error otherwise
+```
+
+
+
+#### `constexpr`
+
+Constant expression. 常量表达式，数值不能改变，在编译时候已经运行。
+
+```Cpp
+const int max_files = 20; // max_files is a constant expression const 
+int limit = max_files + 1; // limit is a constant expression 
+int staff_size = 27; // staff_size is not a constant expression 
+const int sz = get_size(); // sz is not a constant expression
+```
+
+虽然`staff_size`是字符初始化的，但是不是常量。虽然sz是常量但是是等到运行时才能运行，并不是编译时运行的，不是常量。
+
+我们有时候可以把一个表达式声明成常量表达式。使用`constexpr`也就代表着默认其中所有的量都为`const`。
+
+```Cpp
+constexpr int mf = 20; // 20 is a constant expression 
+constexpr int limit = mf + 1; // mf + 1 is a constant expression 
+constexpr int sz = size(); // ok only if size is a constexpr function
+```
+
+#### Array元素的默认初始化
+
+可以用list初始化。如果用list初始化我们可以忽略维数。如果声明的维数比list里的多，则后面的调用默认值。
+
+```Cpp
+const unsigned sz = 3;
+int ia1[sz] = {0,1,2}; // array of three ints with values 0, 1, 2
+int a2[] = {0, 1, 2};// an array of dimension 3
+int a3[5] = {0, 1, 2}; // equivalent to a3[] = {0, 1, 2, 0, 0}
+string a4[3] = {"hi", "bye"}; // same as a4[] = {"hi", "bye", ""} 
+int a5[2] = {0,1,2}; // error: too many initializers
+```
+
+#### String的特殊初始化方法
+
+可以用literal形式初始化，会自动补`null`。
+
+```Cpp
+char a1[] = {'C', '+', '+'}; // list initialization, no null
+char a2[] = {'C', '+', '+', '\0'}; // list initialization, explicit null 
+char a3[] = "C++"; // null terminator added automatically
+const char a4[6] = "Daniel"; // error: no space for the null!
+```
+
+`a1`的维度是3，`a2,a3`的维度是4，`a4`为错的。
+
+#### No copy or assignment
+
+array不存在复制或者赋值。
+
+```cpp
+int a[] = {0, 1, 2}; // array of three ints
+int a2[] = a; // error: cannot initialize one array with another 
+a2 = a; // error: cannot assign one array to another
+```
+
+#### 理解复杂的array声明
+
+array里什么都可以存，即使是指针也可以存。
+
+```cpp
+int *ptrs[10]; // ptrs is an array of ten pointers to int 
+int &refs[10] = /* ? */; // error: no arrays of references
+int (*Parray)[10] = &arr; // Parray points to an array of ten ints
+int (&arrRef)[10] = arr; // arrRef refers to an array of ten ints
+```
+
+类型定义应该从右往左看。首先看到的是array的size是10，名字叫`ptrs`, 类型是到`int`的指针。
+
+读`Parray`的时候要注意从里往外读，`Parray`代表这是一个指针，向右看能知道它的大小是10，向左看能知道元素是`int`。因此，`Parray`是一个有着十个整数的数组的指针。同样的,`&arrRef`里的`&`也代表着他是一个引用。
+
+当然，这个用多少个modifier也没什么限制。
+
+```cpp
+int *(&arry)[10] = ptrs; //arry is a reference to an array of ten pointers
+```
+
+与`string`和`vector`相类似，我们也可以用`for`循环来遍历。
+
+```
+int scores[10] = {};
+for (auto i: scores){
+  cout <<i << " " << endl;
+}
+```
+
+### 3.5.3 指针和数组
+
+当我们用数组时，编译器经常把它转化成了指针。通常来说，当我们使用下标时，实际上是告诉了我们在数组中的位置。所以我们也可以用引用符号得到指针。
+
+```
+string nums[] = {"one", "two", "three"}; // array of strings string *p = &nums[0]; // p points to the first element in nums
+
+string *p2 = nums; // equivalent to p2 = &nums[0]
+```
+
+默认使用的数组是地址。
+
+```cpp
+int ia[] = {0,1,2,3,4,5,6,7,8,9}; // ia is an array of ten ints
+auto ia2(ia); // ia2 is an int* that points to the first element in ia
+ia2 = 42; // error: ia2 is a pointer, and we can't assign an int to a pointer
+
+auto ia2(&ia[0]); // now it's clear that ia2 has type int*
+```
+
+值得注意的是当我们用decltype时并不是这样的，例如`decltype(ia)`就是一个十个元素的数组。
+
+```cpp
+decltype(ia) ia3 = {0,1,2,3,4,5,6,7,8,9};
+ia3 = p; // error: can't assign an int* to an array 
+ia3[4] = i; // ok: assigns the value of i to an element in ia3
+```
+
+#### 指针是可以迭代的
+
+我们可以用递增操作来使元素指向下一个。
+
+```cpp
+int arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+int *p = arr; //p points to the first element in arr
+++p;
+```
+
+与容器中的迭代器一样，我们可以指定off-the-end指针。这个仅仅能用于初始化`e`的时候。
+
+```cpp
+int *e = &arr[10];
+
+for(int *b = arr; b!= e; ++b)
+	cout << *b << endl; //print the elements in arr
+```
+
+虽然我们可以指定off-the-end指针，但是这样做是“错误的”。所以，在c++11里，我们用`begin`和`end`。然而，数列并不是类，所以我们不能用成员函数。我们写成：
+
+```Cpp
+int ia[] = {0,1,2,3,4,5,6,7,8,9}; // ia is an array of ten ints 
+int *beg = begin(ia); // pointer to the first element in ia
+int *last = end(ia); // pointer one past the last element in ia
+```
+
+也可以很方便安全的处理循环。
+
+```cpp
+// pbeg points to the first and pend points just past the last element in arr 
+int *pbeg = begin(arr), *pend = end(arr);
+// find the first negative element, stopping if we've seen all the elements 
+while (pbeg != pend && *pbeg >= 0)
+	++pbeg;
 ```
 
