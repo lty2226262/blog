@@ -535,3 +535,252 @@ while (pbeg != pend && *pbeg >= 0)
 	++pbeg;
 ```
 
+#### 指针的运算
+
+```cpp
+constexpr size_t sz = 5;
+int arr[sz] = {1,2,3,4,5};
+int *ip = arr; // equivalent to int *ip = &arr[0]
+int *ip2 = ip + 4; // ip2 points to arr[4], the last element in arr
+// ok: arr is converted to a pointer to its first element; p points one past the end of arr
+int *p = arr + sz; // use caution -- do not dereference!
+int *p2 = arr + 10; // error: arr has only 5 elements; p2 has undefined value
+
+```
+
+也可以通过迭代器获得数组的长度。
+
+```
+auto n = end(arr) - begin(arr); // n is 5, the number of elements in arr
+```
+
+这个类型是`ptrdiff_t`。与`size_t`类似，这个也是机器定义的，定义在`cstddef`头文件里。
+
+我们可以用同一个数列里的关系进行比较。但是不能用无关的两个对象进行比较。
+
+```Cpp
+int *b = arr, *e = arr + sz;
+while (b < e)
+{
+  //use *b
+  ++b;
+}
+```
+
+```cpp
+int i = 0, sz = 42;
+int *p = &i, *e = &sz;
+//undifined: p and e are unrelated; comparison is meaningless!
+while (p < e)
+```
+
+#### Dereference 和 指针的算术运算
+
+```Cpp
+int ia[] = {0, 2, 4, 6, 8};
+int last = *(ia + 4);
+```
+
+这个是`ia[4]`的元素。
+
+```cpp
+last = *ia + 4;
+```
+
+这个是`ia[0] + 4`
+
+#### 下标和指针
+
+```cpp
+int ia[] = {0,2,4,6,8};//array with 5 elements of type int
+int i = ia[2];// ia is converted to a pointer to the first element in ia
+i = *(p + 2); // equibalent to i = ia[2]
+
+int *p = &ia[2]; // p points to the element indexed by 2
+int j = p[1]; 	//p[1] is equivalent to *(p+1)
+				//p[i] is the same element as ia[3]
+int k = p[-2];	//p[-2] is the same element as ia[0]
+```
+
+`vector`和`string`也有下标，但是是无符号的。但是built-in的下标可以为负数。
+
+#### C库的字符串
+
+C-style的字符串不是一种类型。而是字符数组，最后接着一个null character`\0`。
+
+标准c库里也有一些字符串函数，在`string.h`头文件里。
+
+| strlen(p)      | 返回p的长度，不计入null                           |
+| -------------- | ---------------------------------------- |
+| strcmp(p1, p2) | 比较p1和p2的大小，如果相等返回0，如果p1>p2返回正值，如果p1<p2返回负值 |
+| strcat(p1, p2) | 在p1后加上p2，返回p1                            |
+| strcpy(p1, p2) | 将p2复制到p1，返回p1                            |
+
+C风格字符串必须为null-terminated数组。
+
+```Cpp
+char ca[] = {'C', '+', '+'}; //not null terminated
+cout << strlen(ca) << endl; //disaster: ca isn't null terminated
+```
+
+比较两个字符串的大小：
+
+* C++风格
+
+  ```Cpp
+  string s1 = "A string example"; 
+  string s2 = "A different string"; 
+  if (s1 < s2) // false: s2 is less than s1
+  ```
+
+* C风格
+
+  ```Cpp
+  const char ca1[] = "A string example";
+  const char ca2[] = "A different string";
+  if (ca1 < ca2) // undefined: compares two unrelated addresses
+  if (strcmp(ca1,ca2) < 0) //same effect as string comparision ca1 < ca2
+  ```
+
+#### 连接两个字符串
+
+```Cpp
+// initialize largeStr as a concatenation of s1, a space, and s2
+string largeStr = s1 + " " + s2;
+```
+
+如果用两个数组相加`ca1`和`ca2`，将会失败。两个指针相加非法而且无意义。
+
+所以我们用`strcat`和`strcpy`。能够存储字符串的数组必须足够大。
+
+```Cpp
+//disasrous if we miscalculated the size fo large Str
+strcpy(largeStr, cal); // copies ca1 into largrStr
+strcat(largeStr, " "); // adds a space at the end of largeStr
+strcat(largeStr, ca2); //concatenates ca2 onto largeStr
+```
+
+我们很容易忽视去计算largeStr的大小。因此，门一次我们增加或者拷贝的时候都要做double-check.所以经常会导致内存泄漏。
+
+### 3.5.5  与老程序的接口
+
+* 我们可以使用null-terminated字符串数组来初始化或者赋值给一个string。
+* 我们可以使用一些right-hand operand，例如`+=`来对一个string进行赋值。
+
+然而却没有相反的，我们不能用string来初始化一个字符序列。一个`string`的成员函数可以完成我们想要的大部分操作。
+
+```cpp
+char *str = s; //error: can't initialized a char* from a string
+const char *str = s.c_str(); // ok
+```
+
+这个数组并不是永久有效的。任何对`s`的操作都可能会让这个队列失效。
+
+#### Tips
+
+如果需要一直返回值有效的话，必须要拷贝`c_str`的返回值。
+
+### 使用数组来初始化vector
+
+我们不能从另一个array来初始化一个array。我们也不能用vector来初始化array.然而我们可以用array来初始化一个vector。
+
+```cpp
+int int_arr[] = {0, 1, 2, 3, 4, 5};
+//ivec has six elements; each is a copy of the corresponding element in int_arr
+vector<int> ivev(begin(int_arr), end(int_arr));
+```
+
+也可以用一部分数组：
+
+```cpp
+//copies three elements: int_arr[1], int_arr[2], int_arr[3]
+vector<int> subVec(int_arr + 1, int_arr + 4);
+```
+
+这些都是数组的拷贝。
+
+#### 建议：
+
+用指针和数组经常出错，因为太底层了。所以尽量用vector或者迭代器。用string而不用cstyle字符串。
+
+## 3.6 多维数组
+
+严格来说，c++没有多维数组，其实只是数组的数组。
+
+### 3.6.1 多维数组初始化
+
+```
+int ia[3][4] = { //三个元素；每个元素都是一个尺寸为4的数组
+  {0, 1, 2, 3},  // index是0的行的初始化
+  {4, 5, 6, 7},  // index是1的行的初始化
+  {8, 9, 10, 11} // index是2的行的初始化
+}
+```
+
+里面的大括号其实可要可不要。
+
+```cpp
+int ia[3][4] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+```
+
+有一种骚操作，每行初始化：
+
+```cpp
+int ia[3][4] = {{0}, {4}, {8}};
+```
+
+#### 使用多维数组的下标
+
+```cpp
+// 把arr的第一个元素赋给ia的最后一个元素
+ia[2][3] = arr[0][0][0];
+//bind ia里的第二个四元素数组
+int (&row)[4] = ia[1];
+```
+
+#### 使用range for来枚举多维数组
+
+```cpp
+size_t cnt = 0;
+for (auto &row : ia)  //每一个在外层数组的元素
+	for (auto &col : row)  //每一个在内层数组的元素
+	{
+      col = cnt; //赋值
+      ++cnt;     //递增cnt
+	}
+```
+
+#### 指向多维数组的指针
+
+```Cpp
+int *ip[4]; // array of pointers to int
+int (*ip)[4]; //pointer to an array of four ints
+```
+
+#### Type aliases for 多维数组
+
+别名。
+
+```cpp
+typedef double wages; //wages 是double
+typedef wages base, *p; //base也是double，p是double*
+using SI = Sales_item; //SI 也就是sales_item
+
+wages hourly, weekly;
+SI item;
+```
+
+用在二维数组中：
+
+```cpp
+using int_array = int[4]; // new style type alias declaration, see 2.5.1
+
+typedef int int_array[4]; // 和上面一样
+
+for (int_array *p = ia; p != ia + 3; ++p) 
+{ 
+	for (int *q = *p; q != *p + 4; ++q)
+		cout << *q << ' '; cout << endl;
+}
+```
+

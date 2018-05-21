@@ -707,5 +707,9 @@ $$
 
 方法1:
 
-第一种方式是用四元数代数，首先，计算从$\mathbf{q}_0$转到$\mathbf{q_1}$的微元$\Delta\mathbf{q}$，$\mathbf{q}_1=\mathbf{q}_0\otimes\Delta\mathbf{q}$,
+第一种方式是用四元数代数，首先，计算从$\mathbf{q}_0$转到$\mathbf{q_1}$的微元$\Delta\mathbf{q}$，$\mathbf{q}_1=\mathbf{q}_0\otimes\Delta\mathbf{q}$,所以，
+$$
+\Delta \mathbf{q} = \mathbf{q}^*_0 \otimes\mathbf{q}_1
+$$
+
 
