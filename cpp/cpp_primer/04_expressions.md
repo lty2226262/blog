@@ -406,4 +406,25 @@ sizeof使用：
 
 ## 4.10 逗号操作符
 
- 操作符 
+ 从左到右执行的。左边的执行了但是结果被忽略掉。右边执行结果是返回值。当处在for循环的时候：
+
+```cpp
+vector<int>::size_type cnt = ivec.size();
+// assign values from size... 1 to the elements in ivec
+for (vector<int>::size_type ix = 0; ix != ivec.size(); ++ix, --cnt)
+	ivec[ix] = cnt;
+```
+
+## 4.11 类型转换
+
+举例：
+
+```cpp
+int ival = 3.541 + 3; // the compiler might warn about loss of precision
+```
+
+默认情况下，3.541是double，3是int。
+
+#### 什么时候会发生implicit conversions？
+
+在大多数表达式中，比

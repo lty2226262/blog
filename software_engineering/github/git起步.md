@@ -48,6 +48,7 @@ man git-<verb>
 ```
 
 如果想要获得config命令的手册，执行
-```
+```cpp
 git help config
 ```
+
