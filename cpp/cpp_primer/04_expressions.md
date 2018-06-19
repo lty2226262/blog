@@ -427,4 +427,151 @@ int ival = 3.541 + 3; // the compiler might warn about loss of precision
 
 #### 什么时候会发生implicit conversions？
 
-在大多数表达式中，比
+* 在大多数表达式中，比int还小的整型类型首先会转成一个比整型大一点的整型。
+* 在条件表达式中，非布尔的表达式将会转化成bool。
+* 在初始化过程中，initializer会把类型转化成变量的类型；在赋值时，右手边的表达式类型会转成左手边的类型。
+* 在算术表达式或关系表达式等使用多种类型的表达式时，类型被转化为一个常用类型。
+* 第六章里还会有详解，发生在调用函数时。
+
+### 4.11.1 算术转化
+
+算术转化的代表着一个分级的转化过程，其余的形式都转化成widest的类型。
+
+#### 整型提升(Integral Promotions)
+
+把一个小整型转化成一个大整型。例如，在当所有的值都满足`int`时，把`bool, char, signed char, unsigned char, short, unsigned short`等都提升成int。如果不符合的话，提升为`unsigned int`。就比如，bool的false是0，true是1。
+
+大的char（wchar_t, char16_t, char32_t）会被转成int, unsigned int, long, unsigned long, long long, 或者unsigned long long等一个能盛下该变量的值。
+
+#### 无符号类型操作的操作对象
+
+如果一个操作符的操作对象有着不同的类型，这些操作对象会转化成统一的类型。如果有操作对象是unsigned类型的话，操作对象转成什么就取决于整型对象在机器中的相对大小。
+
+就一般而言，首先会发生整型提升。如果结果类型符合标准，就不进行额外的转换了。如果同号就小的转成大的。
+
+unsigned符号要比signed大。
+
+```cpp
+bool flag; 
+short sval; 
+int ival; 
+long lval; 
+float fval;
+char cval; 
+unsigned short usval; 
+unsigned int uival; 
+unsigned long ulval; 
+double dval;
+
+3.14159L + 'a'; //'a' promoted to int, then that int converted to long double
+dval + ival; // ival converted to double
+dval + fval; // fval converted to double
+ival = dval; // dval converted (by truncation) to int
+flag = dval; // if dval is 0, then flag is false, otherwise true
+cval + fval; // cval promoted to int, then that int converted to float
+sval + cval; // sval and cval promoted to int
+cval + lval; // cval converted to long
+ival + ulval; // ival converted to unsigned long
+usval + ival; // promotion depends on the size of unsigned short and int
+uival + lval; // conversion depends on the size of unsigned int and long
+
+```
+
+### 4.11.2 其他种类的implicit 转换
+
+Array to pointer转换：
+
+```cpp
+int ia[10]; //array of ten ints
+int* ip = ia; //convert ia to a pointer to the first element
+```
+
+pointer 转换：
+
+整数数值常数0或者nullptr可以转化成任何指针类型。非常数类型的指针可以转化成`void *`。任何类型的指针都可以转为`const void *`。
+
+bool转换：
+
+如果一个指针或者arithmetic值是0，则转成false，否则就是true。
+
+const转换：
+
+非常指针可以转化为常指针，引用也是。
+
+```cpp
+int i;
+const int &j = i; //convert a nonconst to a reference to const int
+const int *p = &i; //convert address of a nonconst to the address of a const
+int &r = j, *q = p; //error: conversion from const to nonconst not allowed
+```
+
+反过来是不行的。
+
+### 4.11.3 显式转换
+
+#### Warning
+
+casts是危险的操作，虽然有时候必须要有。
+
+```cpp
+cast-name<type>(expressions);
+```
+
+其中，type是转换的目标类型。expressions是转换原始值。
+
+cast-name包括：
+
+```c
+static_cast
+dynamic_cast
+const_cast
+reinterpret_cast
+```
+
+static_cast用于把一个大类型转化为小的类型。防止编译器报警。
+
+#### const_cast
+
+const_cast可以转换一个低级别的操作对象。
+
+```cpp
+const char *pc;
+char *p = const_cast<char*>(pc); // ok: but writing through p is undefined
+```
+
+使用这个将非const的转成const的是有效的。然而，使用`const_cast`来使const可写是没有定义的。
+
+```cpp
+const char *cp;
+char *q = static_cast<char*>(cp); // error: static_cast can't cast away const
+static_cast<string>(cp); //ok: converts string literal to string
+const_cast<string>(cp); //error: const_cast only changes constness
+```
+
+const_cast常常用于重载。
+
+#### reinterpret_cast
+
+这个是很危险的。
+
+```cpp
+int *ip;
+char* pc = reinterpret_cast<char*>(ip);
+```
+
+这个什么错都不会报。但是当运行：
+
+``` cpp
+string str(pc);
+```
+
+时候，就会报run-time behavior错。
+
+#### warning
+
+这个reinterpret_cast本质上依赖于机器。必须对编译实现非常了解才能知道怎么不用错。
+
+ 
+
+
+
