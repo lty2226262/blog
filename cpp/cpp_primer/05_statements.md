@@ -142,3 +142,5 @@ while (cin >> item1 >> item2) {
 * `type_info`头文件定义了一些`bad_cast`异常。
 
 ![image-20180622101032726](https://ws4.sinaimg.cn/large/006tNc79gy1fsjqg0azmyj310k0fok0e.jpg)
+
+异常类型只有一个操作叫做what.没有参数并且返回一个c-style的字符串。
