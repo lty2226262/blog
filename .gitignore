@@ -130,3 +130,4 @@ cpp/yaml_read_and_write/.idea/.name
 Build/
 
 Cmake-build-debug/
+.DS_Store
