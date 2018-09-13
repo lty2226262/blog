@@ -263,3 +263,36 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+
+
+
+
+## protobuf3 使用
+
+```protobuf
+syntax = "proto3";
+
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+}
+```
+
+后面等于那个数，最小是1，最大536,870,911。注意：19000到19999不能用。
+
+如果想注释掉一些属性field或者名字：
+
+```protobuf
+message Foo {
+  reserved 2, 15, 9 to 11;
+  reserved "foo", "bar";
+}
+```
+
+如果用别的proto文件，
+
+```protobuf
+import "myproject/other_protos.proto";
+```
+
