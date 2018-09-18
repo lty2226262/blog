@@ -296,3 +296,32 @@ message Foo {
 import "myproject/other_protos.proto";
 ```
 
+## CMAKE 编写
+
+外面的：
+
+```cmake
+PROJECT(rpc)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
+SET(CMAKE_CXX_FLAGS "-g -Wall -Werror -std=c++11")
+
+ADD_SUBDIRECTORY(proto)
+
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
+ADD_EXECUTABLE(main main.cpp)
+TARGET_LINK_LIBRARIES(main proto ${PROTOBUF_LIBRARY})
+```
+
+里面的：
+
+```cmake
+INCLUDE(FindProtobuf)
+FIND_PACKAGE(Protobuf REQUIRED)
+INCLUDE_DIRECTORIES(${PROTOBUF_INCLUDE_DIR})
+PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER message.proto)
+ADD_LIBRARY(proto ${PROTO_HEADER} ${PROTO_SRC})
+```
+
+## 与ROS protobuf冲突的解决方法
+
+https://blog.csdn.net/qq_16775293/article/details/80746238
